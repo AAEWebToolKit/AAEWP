@@ -1,6 +1,49 @@
 var $j = jQuery.noConflict();
 var url = window.location.href; 
 
+$j(document).ready(function() {
+
+$j( "#input_3_50" ).prop( "disabled", true );
+$j( "#input_3_76" ).prop( "disabled", true );
+$j( "#choice_3_77_1" ).prop({
+  disabled: true
+});
+
+$j( "#input_3_50" ).addClass("gf_left_third" );
+$j( "#input_3_76" ).addClass("gf_middle_third" );
+$j( "#choice_3_77_1" ).addClass("gf_right_third" );;
+
+});
+/*
+function initialize() { 
+            //var e = document.getElementById("ddlViewBy");
+	    //var strUser = e.options[e.selectedIndex].value; //This value could go below in the country value section                    
+            var options = {
+                types: ['(cities)'],
+                componentRestrictions: {country: document.getElementById("input_3_75").value}
+            };
+            var input = document.getElementById('input_3_76');
+            var autocomplete = new google.maps.places.Autocomplete(input , options);
+	    
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+	$j("#input_3_74").attr("onchange", "popHiddenField()");
+        $j("#input_3_76").attr("onfocus", "clearField()");        
+	
+
+function popHiddenField() {
+    var x = document.getElementById("input_3_74").value;
+    document.getElementById("input_3_75").value = x;
+     clearField();
+    initialize();
+}
+
+function clearField() {   
+    document.getElementById("input_3_76").value = "";  
+}
+*/
+
 function navigateStep1() {   
     window.location.href = "/organizational-profile/";  
 }
@@ -21,32 +64,3 @@ function checkEmailAddr(str) {
     }
 }
 
-var OrgProfileData = localStorage.getItem("OrgProfileForm");
-if(localStorage.getItem("OrgProfileForm") !== "Empty"){    
-       var str = OrgProfileData.replace("{","");
-       var res = str.split(",");
-       try{
-		   for (i = 0, len = res.length, text = ""; i < len; i++) { 
-				var splitter = res[i].split(":");
-				var name = splitter[0].slice(1, splitter[0].length);
-				var value = splitter[1].slice(1, splitter[1].length);
-				name = name.substring(0, name.length - 1);
-				value = value.substring(0, value.length - 1);         
-			 
-			 //This if statement checks to see if the name in the JSON string has [] which indicates the value is coming from a checkbox
-				if(name == "input_4.1"){
-					var IsChecked = value = "Yes" ? "Yes" : "No";          
-					$j("label[for=" + name.replace(".", "") + "]").html(IsChecked);
-				}else{
-				//if(name == "input_7"){
-					var newval = value.replace(/~/g,',');
-					$j("label[for=" + name + "]").html(newval);
-			   
-				}         
-			 
-		   }
-	}
-	catch(err){
-
-	}
-}      
