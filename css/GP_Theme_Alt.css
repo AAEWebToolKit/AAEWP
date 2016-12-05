@@ -12,9 +12,9 @@ background-color: #CC0000;/*red*/
 }
 
 button {
-    background-color: #26247B; /* Blue */
+    background-color: #d6d6d6; /* Gray */
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
