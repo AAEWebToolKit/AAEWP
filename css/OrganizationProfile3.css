@@ -1,4 +1,5 @@
-#field_3_83 .ginput_container.ginput_container_list.ginput_list .gfield_list.gfield_list_container thead  {
+#field_3_83 .ginput_container.ginput_container_list.ginput_list .gfield_list.gfield_list_container thead,
+#field_3_85 .ginput_container.ginput_container_list.ginput_list .gfield_list.gfield_list_container thead  {
   display:none;
 }
 
@@ -12,14 +13,16 @@
   clear: both;
 }
 
-.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2, .gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4 {
+.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2, .gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4,
+.gfield_list_cell.gfield_list_85_cell1, .gfield_list_cell.gfield_list_85_cell2, .gfield_list_cell.gfield_list_85_cell3, .gfield_list_cell.gfield_list_85_cell4 {
     display: block;
     float: left;
 }
 
 
-.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2, .gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4 {
-    width: 47.7%;
+.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2, .gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4,
+.gfield_list_cell.gfield_list_85_cell1, .gfield_list_cell.gfield_list_85_cell2, .gfield_list_cell.gfield_list_85_cell3, .gfield_list_cell.gfield_list_85_cell4 {
+    width: 50%;
     padding: 5px;
 }
 
@@ -28,7 +31,13 @@
     padding-right: 9px !important;
 }
 
-.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2 {
+.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2,
+.gfield_list_cell.gfield_list_85_cell1, .gfield_list_cell.gfield_list_85_cell2 {
     margin-top: 20px !important;
     border-top: 1px solid lightgray !important;
+}
+
+.gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4,
+.gfield_list_cell.gfield_list_85_cell3, .gfield_list_cell.gfield_list_85_cell4 {
+    margin-bottom: 20px !important;
 }

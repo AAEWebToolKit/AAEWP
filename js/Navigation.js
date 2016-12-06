@@ -120,24 +120,34 @@ else {
   var head = document.getElementsByClassName("center");
    $j('#wpadm-login-form').attr('action', 'http://52.87.218.201/');  
    $j('#anchorOrgList').detach();  
-   $j('<h3 style="margin-bottom:0;color:black" class="menu-item-34"><a style="margin-left:75%;font-weight:bold;font-size:small;color:black;margin-bottom:0" id="anchorLogin" href="#">Login</a><em> | </em><a style="font-weight:bold;font-size:small;color:black;margin-bottom:0" id="anchorRegister" href="#">Register</a></h3>').appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');;
+   $j('<h3 style="margin-bottom:0;color:black" class="menu-item-34"><a style="margin-left:75%;font-weight:bold;font-size:small;color:black;margin-bottom:0" id="anchorRegister" href="#">Sign Up</a><em> | </em><a style="font-weight:bold;font-size:small;color:black;margin-bottom:0" id="anchorLogin" href="#">Login</a></h3>').appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');
   
 } 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////Login Code Ends Here
-var randomNumStep2 = Math.floor((Math.random() * 10) + 1)
+var randomNumStep2 = Math.floor((Math.random() * 10) + 1);
+console.log(localStorage.getItem("MenuLink"));
+
 if(localStorage.getItem("MenuLink") != null){
 var routeparams = localStorage.getItem("MenuLink");
-
+console.log('Here in Nav Menu');
 $j("#menu-item-31").find("a").attr("href", "/map-value-chain/" + routeparams);
 $j("#menu-item-32").find("a").attr("href", "/capture-insights-establish-empathy/" + routeparams);
 $j("#menu-item-33").find("a").attr("href", "/learn-connect/" + routeparams);
 
 }
 else{
-$j("#menu-item-31").find("a").attr("href", "/map-value-chain/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&step2_entry_id=" + randomNumStep2 + '&step3_entry_id=' + qs["step3_entry_id"] + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"]);
-$j("#menu-item-32").find("a").attr("href", "/capture-insights-establish-empathy/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"]);
-$j("#menu-item-33").find("a").attr("href", "/learn-connect/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"]);
+var isCompleted = "";
+ if(qs["step3_entry_id"] != 'undefined'){
+if(qs["step3_entry_id"] != null){
+if(qs["step3_entry_id"] != 'null'){
+isCompleted = 'Complete';
+}
+}
+}
+$j("#menu-item-31").find("a").attr("href", "/map-value-chain/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&step2_entry_id=" + randomNumStep2 + '&step3_entry_id=' + qs["step3_entry_id"] + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"] + '&isCompleted=' + isCompleted);
+$j("#menu-item-32").find("a").attr("href", "/capture-insights-establish-empathy/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"]+ '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]+ '&isCompleted=' + isCompleted);
+$j("#menu-item-33").find("a").attr("href", "/learn-connect/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"]+ '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]+ '&isCompleted=' + isCompleted);
 }   
 
 });

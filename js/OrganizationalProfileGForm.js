@@ -43,7 +43,7 @@ function NavigateStep2() {
 }
 
    if(url == "http://52.87.218.201/organizational-profile/"){ 
-
+localStorage.removeItem("MenuLink");
  $j('#gform_2').submit(function() {
     // get all the inputs into an array.
     var $jinputs = $j('#gform_2 :input');

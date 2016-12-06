@@ -42,11 +42,12 @@ function popHiddenField() {
 function clearField() {   
     document.getElementById("input_3_76").value = "";  
 }
-*/
+
 
 function navigateStep1() {   
     window.location.href = "/organizational-profile/";  
 }
+*/
 
 function checkAlphanumericChars(str){
 	var letters = /^[0-9a-zA-Z]+$/;  

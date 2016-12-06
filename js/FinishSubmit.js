@@ -61,6 +61,9 @@ if(errorOccured == "proceed"){
     entry3['is_starred'] = 1;
 if(entry3['16'] == ""){
     entry3['16'] = qs["cs_entry_id"]; 
+}
+else if(entry3['16'] == "undefined"){
+entry3['16'] = qs["cs_entry_id"]; 
 }   
    
 
@@ -74,7 +77,7 @@ if(entry3['16'] == ""){
             type: 'PUT',
             data: entry_json,
             contentType:'application/json',
-            success: function(result) {alert('success');},
+            success: function(result) {console.log('success');},
             error: function(result, textStatus, errorThrown){alert('error ' + errorThrown);}
         });
 }
@@ -550,7 +553,12 @@ $j('<form action="http://52.87.218.201/organization-profile_step3/" method="post
 else{
 //var step1_entry_id = qs["step1_entry_id"]; 
 $j("#btnOrgProfile").click(function() {
+if(qs["step1_entry_id"] != 'undefined'){
 window.location.href = "/organization-profile_step3/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+}
+else{
+window.location.href = "/organizational-profile/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+}
 });
 //$j('<form action="http://52.87.218.201/organizational-profile/" method="post"><button style="width:200px" class="sticky-list-edit submit">Finish</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+ step1_entry_id +'"></form>').appendTo('.OrgProfileButton');
 

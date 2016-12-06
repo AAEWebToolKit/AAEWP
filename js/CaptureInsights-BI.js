@@ -20,13 +20,30 @@ function getQueryString() {
 var qs = getQueryString();
 
 
-$j(document).ready(function(){  
+$j(document).ready(function(){
+console.log(qs["bi_entry_id"]); 
+
+var isCompleted = "";
+ if(qs["step3_entry_id"] != 'undefined'){
+if(qs["step3_entry_id"] != null){
+if(qs["step3_entry_id"] != 'null'){
+isCompleted = 'Complete';
+}
+}
+}
+ 
 if(qs["company_name"] != null){
 if(qs["company_name"] != 'undefined'){
 if(qs["bi_entry_id"] == ""){ 
 $j("#btnBIContainer").css("visibility", "visible");
 $j("#btnBI").click(function(e){
- window.location.href = "/business-insights-form/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+ window.location.href = "/business-insights-form/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"] + '&isCompleted=' + isCompleted;
+});
+}
+else if (qs["bi_entry_id"] == 'undefined'){
+$j("#btnBIContainer").css("visibility", "visible");
+$j("#btnBI").click(function(e){
+ window.location.href = "/business-insights-form/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]+ '&isCompleted=' + isCompleted;
 });
 }
 else{

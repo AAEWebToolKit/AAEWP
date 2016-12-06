@@ -121,6 +121,11 @@ if(baseURLEntry.indexOf("http://52.87.218.201/learn-connect/") > -1){
 var isSubmitted = localStorage.getItem("Submit");
 console.log(isSubmitted);
 $j(document).ready(function() {
+
+if ($j(".display-name")[0]){
+$j("#btnAddOrganization").css("visibility", "visible");
+$j("#btnViewOrgList").css("visibility", "visible");
+}
 if(isSubmitted == "Yes"){
 $j("#InsightsMessage").html('INSIGHTS SUCCESSFULLY SUBMITTED');
 SetProfileSubmitted();
