@@ -1,0 +1,22 @@
+#field_3_83 .ginput_container.ginput_container_list.ginput_list .gfield_list.gfield_list_container thead  {
+  display:none;
+}
+
+.gform_wrapper ul.gform_fields.form_sublabel_above table.gfield_list td::before, .gform_wrapper ul.gform_fields.form_sublabel_below table.gfield_list td::after {
+  content: attr(data-label);
+  font-size: 14px;
+  letter-spacing: .5pt;
+  white-space: nowrap;
+  display: block;
+  clear: both;
+}
+
+.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2, .gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4 {
+    display: block;
+    float: left;
+}
+
+
+.gfield_list_83_cell1 .gfield_list_83_cell2, .gfield_list_83_cell4, .gfield_list_83_cell3 {
+    max-width: 50%;
+}
