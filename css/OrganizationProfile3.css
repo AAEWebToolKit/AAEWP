@@ -2,7 +2,8 @@
   display:none;
 }
 
-.gform_wrapper ul.gform_fields.form_sublabel_above table.gfield_list td::before, .gform_wrapper ul.gform_fields.form_sublabel_below table.gfield_list td::after {
+.gform_wrapper ul.gform_fields.form_sublabel_above table.gfield_list td::before, 
+.gform_wrapper ul.gform_fields.form_sublabel_below table.gfield_list td::before {
   content: attr(data-label);
   font-size: 14px;
   letter-spacing: .5pt;
@@ -17,6 +18,17 @@
 }
 
 
-.gfield_list_83_cell1 .gfield_list_83_cell2, .gfield_list_83_cell4, .gfield_list_83_cell3 {
-    max-width: 50%;
+.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2, .gfield_list_cell.gfield_list_83_cell3, .gfield_list_cell.gfield_list_83_cell4 {
+    width: 47.7%;
+    padding: 5px;
+}
+
+.gform_wrapper table.gfield_list td, .gform_wrapper table.gfield_list th {
+    padding: 0 0 0 0px !important;
+    padding-right: 9px !important;
+}
+
+.gfield_list_cell.gfield_list_83_cell1, .gfield_list_cell.gfield_list_83_cell2 {
+    margin-top: 20px !important;
+    border-top: 1px solid lightgray !important;
 }
