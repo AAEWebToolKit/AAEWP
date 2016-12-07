@@ -18,6 +18,7 @@ $j(document).ready(function(){
 		}
 		appendToTable(jObj);
 		$j("#input_13_31").val(JSON.stringify(jArray));
+		$j("#lblNoStakeHolders").css("visibility","hidden");
 	});
 
 	$j(".deleteStakeHolder").live( "click", function(e) {
@@ -36,6 +37,11 @@ $j(document).ready(function(){
         	$j("#input_13_31").val("");
         }
 		$j(this).closest("tr").remove();
+
+		if(newArray.length == 0)
+		{
+			$j("#lblNoStakeHolders").css("visibility","visible");
+		}
 	});
 
 	buildTable();
@@ -76,6 +82,10 @@ var buildTable = function(){
 	var jsonVal = $j("#input_13_31").val();
 	var jArray = $j.parseJSON(jsonVal);
 	$j(jArray).map(function(){ appendToTable(this); });
+	if(jArray && jArray.length > 0)
+	{
+		$j("#lblNoStakeHolders").css("visibility","hidden")
+	}
 }
 
 var appendToTable = function(jObj){
@@ -84,6 +94,7 @@ var appendToTable = function(jObj){
 	var tdValueChain = '<td>'+ jObj.sValueChainStage +'</td>';
 	var tdDelete = '<td><input type="button" class="gform_button button deleteStakeHolder" value="Delete" id="'+ jObj.id	+'"></input</td>';
 	$j('#tblStakeHolders tr:last').after('<tr>' + tdName + tdRole + tdValueChain + tdDelete +'</tr>');
+	$j("td").css("text-align","center");
 }
 
 //END FUNCTIONS
