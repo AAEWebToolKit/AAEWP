@@ -1,49 +1,22 @@
 var $j = jQuery.noConflict();
 
-var strengths = {"name":"strengths", "jsonControlId": "#input_12_39", "tblId":"#tblStrengths", 
-			 	 "dd1_Id":"#input_12_2", "dd2_Id":"#input_12_3", "comments":"#input_12_23", 
-			  	 "noDataLblId":"#lblNoStrengths"};
+var solutions = {"name":"solutions", "jsonControlId": "#input_14_19", "tblId":"#tblSolution", 
+			 	 "dd1_Id":"#input_14_2", "comments":"#input_14_3", 
+			  	 "noDataLblId":"#lblNoSolution"};
 
-
-var challenges = {"name":"challenges", "jsonControlId": "#input_12_42", "tblId":"#tblChallenges", 
-			 	 "dd1_Id":"#input_12_5", "dd2_Id":"#input_12_6", "comments":"#input_12_40",
-			  	 "noDataLblId":"#lblNoChallenges"};
-
-var barriers = {"name":"barriers", "jsonControlId": "#input_12_44", "tblId":"#tblBarriers", 
-			 	 "dd1_Id":"#input_12_12", "dd2_Id":"#input_12_13", "comments":"#input_12_28",
-			  	 "noDataLblId":"#lblNoBarriers"};
-
-var opportunities = {"name":"opportunities", "jsonControlId": "#input_12_46", "tblId":"#tblOpportunities", 
-				"dd1_Id":"#input_12_17", "dd2_Id":"#input_12_18", "comments":"#input_12_27",
-				"noDataLblId":"#lblNoOpportunities"};
 
 $j(document).ready(function(){ 
 
-	$j("#btnAddStrength").click(function(){
-		addBtnClick(strengths);
+	$j("#btnAddSolution").click(function(){
+		addBtnClick(solutions);
 	});
 
-	$j("#btnAddChallenge").click(function(){
-		addBtnClick(challenges);
-	});
-
-	$j("#btnAddBarrier").click(function(){
-		addBtnClick(barriers);
-	});
-
-	$j("#btnAddOpportunity").click(function(){
-		addBtnClick(opportunities);
-	});
 
 	$j(".deleteBtn").live( "click", function(e) {
 		deleteRow(e);
 	});
 
-	buildTable(strengths);
-	buildTable(challenges);
-	buildTable(barriers);
-	buildTable(opportunities);
-
+	buildTable(solutions);
 });
 
 //FUNCTIONS
@@ -95,13 +68,11 @@ var deleteRow = function(event){
 var getjObj = function(action){
 
 	var jObj = {};
-	var bdd1 = $j(action.dd1_Id).val();
-	var bdd2 = $j(action.dd2_Id).val();
-	var comment = $j(action.comments).val();
+	var sdd1 = $j(action.dd1_Id).val();
+	var scomment = $j(action.comments).val();
 
-	jObj.bdd1 = bdd1;
-	jObj.bdd2 = bdd2;
-	jObj.bComments = comment
+	jObj.sdd1 = sdd1;
+	jObj.sComments = scomment
 	jObj.id = Math.floor(Math.random() * 26) + Date.now();
 
 	return jObj;
@@ -119,10 +90,19 @@ var buildTable = function(action){
 
 
 var appendToTable = function(jObj, action){
-	var td_dd1 = '<td>'+ jObj.bdd1 +'</td>';
-	var td_dd2 = '<td>'+ jObj.bdd2 +'</td>';
+	var td_dd1 = '<td>'+ jObj.sdd1 +'</td>';
+	var td_comment = '';
+
+	if(jObj.sComments.length > 50)
+	{
+		td_comment = '<td>'+ jObj.sComments.substr(0,50) + '...' +'</td>';
+	}
+	else
+	{
+		td_comment = '<td>'+ jObj.sComments +'</td>';	
+	}
 	var tdDelete = '<td><input type="button" actionName="'+ action.name +'" class="gform_button button deleteBtn secondary" value="Delete" id="'+ jObj.id	+'"></input</td>';
-	$j(action.tblId + ' tr:last').after('<tr>' + td_dd1 + td_dd2 + tdDelete +'</tr>');
+	$j(action.tblId + ' tr:last').after('<tr>' + td_dd1 + td_comment + tdDelete +'</tr>');
 	$j("td").css("text-align","center");
 }
 //END FUNCTIONS
