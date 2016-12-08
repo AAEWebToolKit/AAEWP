@@ -92,7 +92,7 @@ var appendToTable = function(jObj){
 	var tdName = '<td>'+ jObj.sFirstName + ' '+jObj.sLastName+'</td>';
 	var tdRole = '<td>'+ jObj.sRole +'</td>';
 	var tdValueChain = '<td>'+ jObj.sValueChainStage +'</td>';
-	var tdDelete = '<td><input type="button" class="gform_button button deleteStakeHolder" value="Delete" id="'+ jObj.id	+'"></input</td>';
+	var tdDelete = '<td><input type="button" class="gform_button button deleteStakeHolder secondary" value="Delete" id="'+ jObj.id	+'"></input</td>';
 	$j('#tblStakeHolders tr:last').after('<tr>' + tdName + tdRole + tdValueChain + tdDelete +'</tr>');
 	$j("td").css("text-align","center");
 }

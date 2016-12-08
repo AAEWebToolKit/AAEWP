@@ -1,0 +1,33 @@
+/*table {
+ width:100%;
+}
+
+th {    
+	border-bottom: 1px double lightgray;    
+	border-top: 1px solid lightgray;    
+	border-collapse: collapse;
+}
+
+table, td {    
+	border-bottom: 1px solid lightgray;    
+	border-top: 1px solid lightgray;    
+	border-collapse: collapse;
+}
+
+th, td {    
+	padding: 5px;    
+	text-align: center !important;
+}
+
+table#tblStakeHolders tr:nth-child(even) {    
+	background-color: #eee;
+}
+
+table#tblStakeHolders tr:nth-child(odd) {   
+	background-color:#fff;
+}*/
+
+.formBtn {
+	background-color:#d6d6d6;
+	color:black;
+}
