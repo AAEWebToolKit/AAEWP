@@ -2,47 +2,60 @@ var $j = jQuery.noConflict();
 
 var strengths = {"name":"strengths", "jsonControlId": "#input_12_39", "tblId":"#tblStrengths", 
 			 	 "dd1_Id":"#input_12_2", "dd2_Id":"#input_12_3", "comments":"#input_12_23", 
-			  	 "noDataLblId":"#lblNoStrengths"};
+			  	 "noDataLblId":"#lblNoStrengths","addBtnID":"#btnAddStrength"};
 
 
 var challenges = {"name":"challenges", "jsonControlId": "#input_12_42", "tblId":"#tblChallenges", 
 			 	 "dd1_Id":"#input_12_5", "dd2_Id":"#input_12_6", "comments":"#input_12_40",
-			  	 "noDataLblId":"#lblNoChallenges"};
+			  	 "noDataLblId":"#lblNoChallenges","addBtnID":"#btnAddChallenge"};
 
 var barriers = {"name":"barriers", "jsonControlId": "#input_12_44", "tblId":"#tblBarriers", 
 			 	 "dd1_Id":"#input_12_12", "dd2_Id":"#input_12_13", "comments":"#input_12_28",
-			  	 "noDataLblId":"#lblNoBarriers"};
+			  	 "noDataLblId":"#lblNoBarriers","addBtnID":"#btnAddBarrier"};
 
 var opportunities = {"name":"opportunities", "jsonControlId": "#input_12_46", "tblId":"#tblOpportunities", 
 				"dd1_Id":"#input_12_17", "dd2_Id":"#input_12_18", "comments":"#input_12_27",
-				"noDataLblId":"#lblNoOpportunities"};
+				"noDataLblId":"#lblNoOpportunities","addBtnID":"#btnAddOpportunity"};
+
+var actionArray = [strengths,challenges,barriers,opportunities];
+
+var deleteEvent = null;
+
+$j( function() {
+    $j( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        "Delete Item": function() {
+          deleteRow(deleteEvent);
+          $j( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+ });
+
 
 $j(document).ready(function(){ 
 
-	$j("#btnAddStrength").click(function(){
-		addBtnClick(strengths);
-	});
+	$j.each(actionArray, function(idx,ele){
 
-	$j("#btnAddChallenge").click(function(){
-		addBtnClick(challenges);
-	});
+		$j(ele.addBtnID).click(function(){
+			addBtnClick(eval(ele.name));
+		});
 
-	$j("#btnAddBarrier").click(function(){
-		addBtnClick(barriers);
-	});
-
-	$j("#btnAddOpportunity").click(function(){
-		addBtnClick(opportunities);
-	});
+		buildTable(eval(ele.name));
+	})
 
 	$j(".deleteBtn").live( "click", function(e) {
-		deleteRow(e);
+		deleteEvent = e;
+		$j( "#dialog-confirm" ).dialog( "open" );
 	});
-
-	buildTable(strengths);
-	buildTable(challenges);
-	buildTable(barriers);
-	buildTable(opportunities);
 
 });
 
@@ -116,7 +129,6 @@ var buildTable = function(action){
 		$j(action.noDataLblId).css("visibility","hidden")
 	}
 }
-
 
 var appendToTable = function(jObj, action){
 	var td_dd1 = '<td>'+ jObj.bdd1 +'</td>';
