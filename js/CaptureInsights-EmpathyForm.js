@@ -1,4 +1,25 @@
 var $j = jQuery.noConflict();
+var deleteEvent = null;
+
+$j( function() {
+    $j( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        "Delete Item": function() {
+          deleteRow(deleteEvent);
+          $j( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+ });
+
 
 $j(document).ready(function(){ 
 	$j("#btnAddStakeholder").click(function(){
@@ -14,7 +35,6 @@ $j(document).ready(function(){
 		{
 			jArray = $j.parseJSON(jsonVal);
 			jArray.push(jObj);
-
 		}
 		appendToTable(jObj);
 		$j("#input_13_31").val(JSON.stringify(jArray));
@@ -22,26 +42,8 @@ $j(document).ready(function(){
 	});
 
 	$j(".deleteStakeHolder").live( "click", function(e) {
-		var objId = e.target.id;
-		var jsonVal = $j("#input_13_31").val();
-		var jArray = $j.parseJSON(jsonVal);
-		var newArray = jQuery.grep(jArray, function(value) {
-						  return value.id != objId;
-					   });
-        if(newArray.length > 0)
-        {
-        	$j("#input_13_31").val(JSON.stringify(newArray));
-        }	
-        else
-        {
-        	$j("#input_13_31").val("");
-        }
-		$j(this).closest("tr").remove();
-
-		if(newArray.length == 0)
-		{
-			$j("#lblNoStakeHolders").css("visibility","visible");
-		}
+		deleteEvent = e;
+		$j( "#dialog-confirm" ).dialog( "open" );
 	});
 
 	buildTable();
@@ -49,6 +51,29 @@ $j(document).ready(function(){
 
 
 //FUNCTIONS
+
+var deleteRow = function(e){
+	var objId = e.target.id;
+	var jsonVal = $j("#input_13_31").val();
+	var jArray = $j.parseJSON(jsonVal);
+	var newArray = jQuery.grep(jArray, function(value) {
+					  return value.id != objId;
+				   });
+    if(newArray.length > 0)
+    {
+    	$j("#input_13_31").val(JSON.stringify(newArray));
+    }	
+    else
+    {
+    	$j("#input_13_31").val("");
+    }
+	$j(e.target).closest("tr").remove();
+
+	if(newArray.length == 0)
+	{
+		$j("#lblNoStakeHolders").css("visibility","visible");
+	}
+};
 
 var getjObj = function(){
 

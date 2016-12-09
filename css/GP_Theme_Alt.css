@@ -52,6 +52,10 @@ background-color: #CC0000;/*red*/
     cursor: pointer;
 }
 
+#wp-admin-bar-site-name, #wp-admin-bar-wp-logo{
+	visibility: hidden;
+}
+
 #pagination a {
 display:inline-block;
 margin-right:5px;
@@ -123,5 +127,6 @@ margin-right:5px;
 				#crumbs ul li a:hover:after {
 					border-left-color: #000;/*black*/
 				}
+
 
 
