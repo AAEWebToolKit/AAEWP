@@ -4,6 +4,26 @@ var solutions = {"name":"solutions", "jsonControlId": "#input_14_19", "tblId":"#
 			 	 "dd1_Id":"#input_14_2", "comments":"#input_14_3", 
 			  	 "noDataLblId":"#lblNoSolution"};
 
+var deleteEvent = null;
+
+$j( function() {
+    $j( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        "Delete Item": function() {
+          deleteRow(deleteEvent);
+          $j( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+ });
 
 $j(document).ready(function(){ 
 
@@ -13,7 +33,8 @@ $j(document).ready(function(){
 
 
 	$j(".deleteBtn").live( "click", function(e) {
-		deleteRow(e);
+		deleteEvent = e;
+		$j( "#dialog-confirm" ).dialog( "open" );
 	});
 
 	buildTable(solutions);
