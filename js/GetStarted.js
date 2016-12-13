@@ -25,12 +25,6 @@ var lgn = $j("#myLoginModal").detach();
 var rgstr = $j("#abc").detach();
 var fpass = $j("#myResetModal").detach();
 
-//$j(lgn).insertBefore("#copyright");
-//$j(rgstr).insertBefore("#copyright");
-
-$j("#content").css("margin-bottom", "0");
-$j("#content").css("margin-top", "0");
-
 $j("#pagesidebar").prepend(lgn);
 $j("#pagesidebar").prepend(rgstr);
 $j("#pagesidebar").prepend(fpass);
@@ -39,6 +33,8 @@ $j("#content").detach();
 
 $j("#user_password-454").attr("title","Passwords should be 8 characters in length");
 
+ $j("#popup").addClass("main");
+$j("#popup").css("float", "none");
     $j("#popup").click(function(e){
       div_show();
     });

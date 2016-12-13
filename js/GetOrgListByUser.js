@@ -128,6 +128,10 @@ url += '&search=' + search;
 
 // here is your success from AJAX
 //alert(JSON.stringify(entries));
+if(total_count > 0 ){
+$j("#EmptyMessage").detach();
+}
+
  var tbody = $j("<tbody class='list' />"),tr;
 
   $j.each(entries,function(_,obj) {
@@ -153,14 +157,23 @@ var empathy_id = obj["14"];
 var location = obj["7"];
 var bi_id = obj["18"];
 var cs_id = obj["16"];
+var modified = obj["20"];
+var sector = obj["21"];
 
 var hq = obj["4.1"];
 
-       tr.append("<td><a class='orgname' style='font-weight:bold' href='#'>"+compname+"</a></td>");
-       tr.append("<td><a class='location'>"+location+"</a></td>");
-       tr.append("<td><a class='hq'>"+hq+"</a></td>");
-	tr.append("<td  class='form_submitted'>"+submitted+"</td>");
+       tr.append("<td style='text-align:center;color:black'><a class='orgname' style='font-weight:bold' href='#'>"+compname+"</a></td>");
+       tr.append("<td style='text-align:center;color:black'><a class='location'>"+location+"</a></td>");
+       tr.append("<td style='text-align:center;color:black'><a class='hq'>"+hq+"</a></td>");
+       tr.append("<td style='text-align:center;color:black'><a class='sector'>"+sector+"</a></td>");
+       tr.append("<td style='text-align:center;color:black'><a class='modified'>"+modified+"</a></td>");
+if(submitted == 'Submitted'){
+	tr.append("<td  style='color:green;font-weight:bold;text-align:center' class='form_submitted'>"+submitted+"</td>");
+}
+else{
+tr.append("<td  style='color:#F1472C;font-weight:bold;text-align:center' class='form_submitted'>"+submitted+"</td>");
 
+}
        tr.append("<td  style='display:none' class='form_complete'>"+completed+"</td>");
        tr.append("<td style='display:none' class='id'>"+obj.id+"</td>");
 	tr.append("<td style='display:none' class='entry2_id'>"+entry2_id+"</td>");
@@ -182,6 +195,7 @@ if(total_count > maxRows - 1 ){
        $j(".next").css("visibility", "visible");
 
 }
+
 
 $j('.paginated').each(function() {
  var cTable = $j(this);
@@ -294,6 +308,13 @@ $j(".orgname").live('click', function(){
                        .find(".cs_id")     // Gets a descendent with class="form_complete"
                        .text();         // Retrieves the text within <td>
 
+var location = $j(this).closest("tr")   // Finds the closest row <tr> 
+                       .find(".location")     // Gets a descendent with class="form_complete"
+                       .text();         // Retrieves the text within <td>
+
+var hq = $j(this).closest("tr")   // Finds the closest row <tr> 
+                       .find(".hq")     // Gets a descendent with class="form_complete"
+                       .text();         // Retrieves the text within <td>
 
 //if(isCompleted == "Submitted"){
 //isCompleted =  "Complete"; 
@@ -301,11 +322,11 @@ $j(".orgname").live('click', function(){
 //else{
 //isCompleted = "";
 //}
-
++ '&org_country=' + qs["org_country"] + '&org_city=' + qs["org_city"] + '&org_hq=' + qs["org_hq"] + '&co_code=' + qs["co_code"]
     //$j("#resultas").append($item);       // Outputs the answer
-var menulinks = '?company_name=' + item + '&step1_entry_id=' + entry + '&isCompleted=' + isCompleted + '&step2_entry_id=' + entry2 + '&step3_entry_id=' + entry3 + '&mvc_entry_id=' + mvc + '&empathy_entry_id='+ empathy + '&bi_entry_id='+ bi + '&cs_entry_id='+ cs;
+var menulinks = '?company_name=' + item + '&step1_entry_id=' + entry + '&isCompleted=' + isCompleted + '&step2_entry_id=' + entry2 + '&step3_entry_id=' + entry3 + '&mvc_entry_id=' + mvc + '&empathy_entry_id='+ empathy + '&bi_entry_id='+ bi + '&cs_entry_id='+ cs + '&org_city=' + location + '&org_hq=' + hq;
 localStorage.setItem("MenuLink", menulinks);
-window.location.href = '/finish-submit/?company_name=' + item + '&step1_entry_id=' + entry + '&isCompleted=' + isCompleted + '&step2_entry_id=' + entry2 + '&step3_entry_id=' + entry3 + '&mvc_entry_id=' + mvc + '&empathy_entry_id='+ empathy + '&bi_entry_id='+ bi + '&cs_entry_id='+ cs;
+window.location.href = '/finish-submit/?company_name=' + item + '&step1_entry_id=' + entry + '&isCompleted=' + isCompleted + '&step2_entry_id=' + entry2 + '&step3_entry_id=' + entry3 + '&mvc_entry_id=' + mvc + '&empathy_entry_id='+ empathy + '&bi_entry_id='+ bi + '&cs_entry_id='+ cs + '&org_city=' + location + '&org_hq=' + hq;
 
 });
 

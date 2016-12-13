@@ -3,11 +3,47 @@ var url = window.location.href;
 
 $j(document).ready(function() {
 
-$j( "#input_3_50" ).prop( "disabled", true );
-$j( "#input_3_76" ).prop( "disabled", true );
-$j( "#choice_3_77_1" ).prop({
-  disabled: true
+   $j("#input_3_50").keypress(function(key) { 
+if((this.value.length + 1) > this.value.length){
+  return false;
+  
+}        
 });
+      
+ $j("#input_3_50").keydown(function(key) {
+ 
+if(key.keyCode === 8){
+  return false;
+  
+}   
+});
+      
+$j("#input_3_76").keypress(function(key) {   
+if((this.value.length + 1) > this.value.length){
+  return false;  
+}        
+});
+      
+ $j("#input_3_76").keydown(function(key) {
+ 
+if(key.keyCode === 8){
+  return false;
+  
+}   
+});
+      
+$j("#choice_3_77_1").on("click", function(key) { 
+  
+ //console.log('clicked event of checkbox');//this.attr("checked")
+  return false;  
+
+});
+
+//$j( "#input_3_50" ).prop( "disabled", true );
+//$j( "#input_3_76" ).prop( "disabled", true );
+//$j( "#choice_3_77_1" ).prop({
+  //disabled: true
+//});
 
 $j( "#input_3_50" ).addClass("gf_left_third" );
 $j( "#input_3_76" ).addClass("gf_middle_third" );

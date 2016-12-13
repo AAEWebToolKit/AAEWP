@@ -20,8 +20,25 @@ $j( function() {
     });
  });
 
+$j( function() {
+    $j( "#dialog-validate" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        "OK": function() {
+         window["gf_submitting_13"]=false;
+         $j( this ).dialog( "close" ); 
+        }
+      }
+    });
+ });
 
-$j(document).ready(function(){ 
+
+$j(document).ready(function(){
+        $j("#gform_13").attr("onsubmit", "return validateForm()"); 
 	$j("#btnAddStakeholder").click(function(){
 		var jsonVal = $j("#input_13_31").val();
 		var jObj = getjObj();
@@ -44,8 +61,8 @@ $j(document).ready(function(){
 	$j(".deleteStakeHolder").live( "click", function(e) {
 		deleteEvent = e;
 		$j( "#dialog-confirm" ).dialog( "open" );
-	});
-
+	});        
+        
 	buildTable();
 });
 
@@ -122,4 +139,16 @@ var appendToTable = function(jObj){
 	$j("td").css("text-align","center");
 }
 
+function validateForm(){
+var insightscaptured = $j("#input_13_31").val();
+
+//Check Insights Captured
+if(insightscaptured == ""){   
+        $j("#dialog-validate" ).dialog( "open" );
+         return false;
+    }
+    else{
+         return true;         
+    }
+}
 //END FUNCTIONS

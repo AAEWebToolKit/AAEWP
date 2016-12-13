@@ -25,8 +25,24 @@ $j( function() {
     });
  });
 
-$j(document).ready(function(){ 
+$j( function() {
+    $j( "#dialog-validate" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        "OK": function() {
+         window["gf_submitting_14"]=false;
+         $j( this ).dialog( "close" ); 
+        }
+      }
+    });
+ });
 
+$j(document).ready(function(){ 
+        $j("#gform_14").attr("onsubmit", "return validateForm()");
 	$j("#btnAddSolution").click(function(){
 		addBtnClick(solutions);
 	});
@@ -125,5 +141,17 @@ var appendToTable = function(jObj, action){
 	var tdDelete = '<td><input type="button" actionName="'+ action.name +'" class="gform_button button deleteBtn secondary" value="Delete" id="'+ jObj.id	+'"></input</td>';
 	$j(action.tblId + ' tr:last').after('<tr>' + td_dd1 + td_comment + tdDelete +'</tr>');
 	$j("td").css("text-align","center");
+}
+function validateForm(){
+var solutionscaptured = $j("#input_14_19").val();
+
+//Check Insights Captured
+if(soutionscaptured == ""){   
+        $j("#dialog-validate" ).dialog( "open" );
+         return false;
+    }
+    else{
+         return true;         
+    }
 }
 //END FUNCTIONS

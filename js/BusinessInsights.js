@@ -40,9 +40,25 @@ $j( function() {
     });
  });
 
+$j( function() {
+    $j( "#dialog-validate" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 400,
+      modal: true,
+      autoOpen: false,
+      buttons: {
+        "OK": function() {
+         window["gf_submitting_12"]=false;
+         $j( this ).dialog( "close" ); 
+        }
+      }
+    });
+ });
+
 
 $j(document).ready(function(){ 
-
+        $j("#gform_12").attr("onsubmit", "return validateForm()");
 	$j.each(actionArray, function(idx,ele){
 
 		$j(ele.addBtnID).click(function(){
@@ -136,5 +152,39 @@ var appendToTable = function(jObj, action){
 	var tdDelete = '<td><input type="button" actionName="'+ action.name +'" class="gform_button button deleteBtn secondary" value="Delete" id="'+ jObj.id	+'"></input</td>';
 	$j(action.tblId + ' tr:last').after('<tr>' + td_dd1 + td_dd2 + tdDelete +'</tr>');
 	$j("td").css("text-align","center");
+}
+
+function validateForm(){
+var strenghtscatured = $j("#input_12_39").val();
+var challengescaptured = $j("#input_12_42").val();
+var barriercaptured = $j("#input_12_44").val();
+var opportunitycaptured = $j("#input_12_46").val();
+var needData = false;
+//Check Insights Captured
+ if(strenghtscatured == ""){
+	if (challengescaptured == ""){
+	
+		if (barriercaptured == ""){
+	
+			if (opportunitycaptured == ""){
+				needData = true;
+			}
+
+		}
+	}
+        
+    }
+ 
+ 
+ 
+    
+if (needData){
+	$j("#dialog-validate" ).dialog( "open" );
+         return false;         
+    }
+else{
+   return true;
+}
+
 }
 //END FUNCTIONS

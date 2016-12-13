@@ -1,4 +1,14 @@
-    //set variables
+var company_name = "";
+var step1_entry_id = "";
+var step3_entry_id = "";
+var mvc_entry_id = "";
+var empathy_entry_id = "";
+var bi_entry_id = "";
+var cs_entry_id = "";
+var complete = "";
+var baseURLEntry = location.protocol + '//' + location.host + location.pathname;
+
+   //set variables
     var d = new Date;
     var expiration = 7200; // 1 hour,
     var unixtime = parseInt(d.getTime() / 1000);
@@ -33,9 +43,256 @@ function CalculateSig(stringToSign, privateKey){
         return encodeURIComponent(base64);
 }
 
-function LinkCSandProfileOne(){
+function SetCaptureInsightSubMenus(page){
+var routeparams = localStorage.getItem("MenuLink");
+//console.log(routeparams);
+if(routeparams == null || routeparams == 'null'){
+switch(page) {
+    case "fs":
+//console.log('Here1');
+$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;margin-left: 10%;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
+
+$j("#anchorB").attr("href", "http://52.87.218.201/capture-insights-business-insights/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
+
+$j("#anchorC").attr("href", "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
+
+$j("#anchorE").attr("href", "http://52.87.218.201/capture-insights-establish-empathy/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
+
+//$j("#anchorB").attr("href", "http://52.87.218.201/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+
+//$j("#anchorC").attr("href", "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"]+ '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+
+//$j("#anchorE").attr("href", "http://52.87.218.201/capture-insights-establish-empathy/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+
+        break;
+}
+
+}
+else{
+
+switch(page) {
+    case "fs":
+//console.log('Here2');
+$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;margin-left: 10%;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
+$j("#anchorB").attr("href","http://52.87.218.201/capture-insights-business-insights/" + routeparams);// "http://52.87.218.201/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+
+$j("#anchorC").attr("href","http://52.87.218.201/capture-insights-create-solutions/" + routeparams);// "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+
+$j("#anchorE").attr("href", "http://52.87.218.201/capture-insights-establish-empathy/" + routeparams);// "http://52.87.218.201/finish-submit/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+ 
+ break;
+}
+
+}
+
+}
+
+function GetAnyEntryID(section){
+var qs = getQueryString();
+switch(section) {
+   case "org":  
+
+//create signature and url for putting entries
+stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+
+//create signature and url for first entry
+stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.get(get_url6, function(data, textStatus)
+{
+    //get the data from the api for the first entry
+    if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
+        //http request failed
+        errorOccured = "Yes";
+        console.log( 'There was an error attempting to access the API - Getting Step 3 Entry ID for Finish & Submit ' );
+        return;
+    }
+entry9 = data.response;
+$j("#edit_id").val(entry9['12']);
+//console.log(entry9['12'] + ' inside callback');
+return entry9['12'];
+
+
+});
+
+break;
+   case "empathy":
+
+//create signature and url for putting entries
+stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+
+//create signature and url for first entry
+stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.get(get_url6, function(data, textStatus)
+{
+    //get the data from the api for the first entry
+    if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
+        //http request failed
+        errorOccured = "Yes";
+        console.log( 'There was an error attempting to access the API - Getting Step 3 Entry ID for Finish & Submit ' );
+        return;
+    }
+entry9 = data.response;
+$j("#edit_empathy_id").val(entry9['14']);
+//console.log(entry9['12'] + ' inside callback');
+return entry9['14'];
+
+
+});
+break;
+ case "mvc":
+
+//create signature and url for putting entries
+stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+
+//create signature and url for first entry
+stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.get(get_url6, function(data, textStatus)
+{
+    //get the data from the api for the first entry
+    if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
+        //http request failed
+        errorOccured = "Yes";
+        console.log( 'There was an error attempting to access the API - Getting Step 3 Entry ID for Finish & Submit ' );
+        return;
+    }
+entry9 = data.response;
+$j("#edit_mvc_id").val(entry9['13']);
+//console.log(entry9['12'] + ' inside callback');
+return entry9['13'];
+
+
+});
+break;
+ case "bi":
+
+//create signature and url for putting entries
+stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+
+//create signature and url for first entry
+stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.get(get_url6, function(data, textStatus)
+{
+    //get the data from the api for the first entry
+    if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
+        //http request failed
+        errorOccured = "Yes";
+        console.log( 'There was an error attempting to access the API - Getting Step 3 Entry ID for Finish & Submit ' );
+        return;
+    }
+entry9 = data.response;
+$j("#edit_bi_id").val(entry9['18']);
+//console.log(entry9['12'] + ' inside callback');
+return entry9['18'];
+
+});
+break;
+ case "cs":
+
+//create signature and url for putting entries
+stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+
+//create signature and url for first entry
+stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.get(get_url6, function(data, textStatus)
+{
+    //get the data from the api for the first entry
+    if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
+        //http request failed
+        errorOccured = "Yes";
+        console.log( 'There was an error attempting to access the API - Getting Step 3 Entry ID for Finish & Submit ' );
+        return;
+    }
+entry9 = data.response;
+$j("#edit_cs_id").val(entry9['16']);
+//console.log(entry9['12'] + ' inside callback');
+return entry9['16'];
+
+
+});
+break;
+}
+}
+
+function GenerateQueryString(){
 var qs = getQueryString();
 
+//create signature and url for putting entries
+stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+
+//create signature and url for first entry
+stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var get_url5 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.get(get_url5, function(data, textStatus)
+{
+    //get the data from the api for the first entry
+    if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
+        //http request failed
+        errorOccured = "Yes";
+        console.log( 'There was an error attempting to access the API - Generating QueryString for Finish & Submit' );
+        return;
+    }
+entry8 = data.response;
+
+
+company_name = entry8['1'];
+step1_entry_id = entry8['id'];
+step3_entry_id = entry8['12'];
+mvc_entry_id = entry8['13'];
+empathy_entry_id = entry8['14'];
+bi_entry_id = entry8['18'];
+cs_entry_id = entry8['16'];
+complete = entry8['10'];
+
+//console.log(mvc_entry_id + ' for ' + company_name);
+var menulinks = localStorage.getItem("MenuLink");
+
+if(menulinks == null){
+var menulinks = '?company_name=' + entry8['1'] + '&step1_entry_id=' + entry8['id'] + '&isCompleted=' + entry8['10'] + '&step2_entry_id=' + entry8['12'] + '&step3_entry_id=' + entry8['12'] + '&mvc_entry_id=' + entry8['13'] + '&empathy_entry_id='+ entry8['14'] + '&bi_entry_id='+ entry8['18'] + '&cs_entry_id='+ entry8['16'];
+localStorage.setItem("MenuLink", menulinks);
+}
+else if(menulinks == 'null'){
+var menulinks = '?company_name=' + entry8['1'] + '&step1_entry_id=' + entry8['id'] + '&isCompleted=' + entry8['10'] + '&step2_entry_id=' + entry8['12'] + '&step3_entry_id=' + entry8['12'] + '&mvc_entry_id=' + entry8['13'] + '&empathy_entry_id='+ entry8['14'] + '&bi_entry_id='+ entry8['18'] + '&cs_entry_id='+ entry8['16'];
+localStorage.setItem("MenuLink", menulinks);
+}
+else if (menulinks == 'undefined'){
+var menulinks = '?company_name=' + entry8['1'] + '&step1_entry_id=' + entry8['id'] + '&isCompleted=' + entry8['10'] + '&step2_entry_id=' + entry8['12'] + '&step3_entry_id=' + entry8['12'] + '&mvc_entry_id=' + entry8['13'] + '&empathy_entry_id='+ entry8['14'] + '&bi_entry_id='+ entry8['18'] + '&cs_entry_id='+ entry8['16'];
+localStorage.setItem("MenuLink", menulinks);
+}
+else if (menulinks == ''){
+var menulinks = '?company_name=' + entry8['1'] + '&step1_entry_id=' + entry8['id'] + '&isCompleted=' + entry8['10'] + '&step2_entry_id=' + entry8['12'] + '&step3_entry_id=' + entry8['12'] + '&mvc_entry_id=' + entry8['13'] + '&empathy_entry_id='+ entry8['14'] + '&bi_entry_id='+ entry8['18'] + '&cs_entry_id='+ entry8['16'];
+localStorage.setItem("MenuLink", menulinks);
+}
+
+
+});
+}
+
+function LinkCSandProfileOne(){
+var qs = getQueryString();
+var solutionsupdate = false;
 //create signature and url for putting entries
 stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
@@ -46,13 +303,14 @@ stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future
 sig = CalculateSig(stringToSign, privateKey);
 var get_url4 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 var errorOccured = "proceed";
+var newcreatesolutionsid = "";
 $j.get(get_url4, function(data, textStatus)
 {
     //get the data from the api for the first entry
     if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
         //http request failed
         errorOccured = "Yes";
-        console.log( 'There was an error attempting to access the API - ' + data.status + ': ' + data.response );
+        console.log( 'There was an error attempting to access the API - Linking Create Solutions to step 1' );
         return;
     }
 
@@ -60,12 +318,38 @@ if(errorOccured == "proceed"){
     entry3 = data.response;
     entry3['is_starred'] = 1;
 if(entry3['16'] == ""){
-    entry3['16'] = qs["cs_entry_id"]; 
+    entry3['16'] = qs["cs_entry_id"];
+newcreatesolutionsid = qs["cs_entry_id"]; 
 }
 else if(entry3['16'] == "undefined"){
-entry3['16'] = qs["cs_entry_id"]; 
-}   
-   
+entry3['16'] = qs["cs_entry_id"];
+newcreatesolutionsid = qs["cs_entry_id"];  
+}
+else{
+newcreatesolutionsid = entry3['16']; 
+solutionsupdate = true;
+}  
+
+if(qs["cs_enty_id"] != entry3['16']){
+if(solutionsupdate){
+var route = newcreatesolutionsid
+
+stringToSign = publicKey + ":" + deletemethod + ":" + route + ":" + future_unixtime;
+sig = CalculateSig(stringToSign, privateKey);
+var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+
+$j.ajax({
+    url: url,
+    type: 'DELETE',
+    contentType:'application/json',
+    success: function(result) {console.log('dup sticky list create solutions entry deleted');},
+    error: function(result, textStatus, errorThrown){console.log('error ' + errorThrown + ' CREATE SOLUTIONS sticky list delete');}
+});
+
+}
+}
+   var d = new Date();
+entry3['20'] = d.toDateString();
 
         var entries = Array();
         entries[0] = entry3;        
@@ -77,8 +361,8 @@ entry3['16'] = qs["cs_entry_id"];
             type: 'PUT',
             data: entry_json,
             contentType:'application/json',
-            success: function(result) {console.log('success');},
-            error: function(result, textStatus, errorThrown){alert('error ' + errorThrown);}
+            success: function(result) {console.log('Adding CREATE SOLUTIOS entry ID to Step 1');},
+            error: function(result, textStatus, errorThrown){console.log('error ' + errorThrown + ' Finish & Submit for Learn & Connect');}
         });
 }
 });
@@ -89,10 +373,26 @@ if(baseURLEntry.indexOf("http://52.87.218.201/finish-submit/") > -1){
 $j(document).ready(function() {
 
 var qs = getQueryString();
-//var menulinks = '?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isComplete"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["emapthy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
-//localStorage.setItem("MenuLink", menulinks);
 
+
+
+if(qs["cs_entry_id"] != 'undefined'){
+if(qs["cs_entry_id"] != 'null'){
+if(qs["cs_entry_id"] != null){
+if(qs["cs_entry_id"] != ''){
 LinkCSandProfileOne();
+}
+}
+}
+}
+
+
+GenerateQueryString();
+
+SetCaptureInsightSubMenus("fs");
+
+
+var routes = localStorage.getItem("MenuLink");
 
 document.getElementById('myStatusPrompt').style.display = "block";
 
@@ -130,7 +430,7 @@ url += '&search=' + search;
         //get the data from the api
         if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
             //http request failed
-            document.write( 'There was an error attempting to access the API - ' + data.status + ': ' + data.response );
+            document.write( 'There was an error attempting to access the API - EMPATHY fetch for Finish & Submit' );
 
             return;
         }
@@ -155,11 +455,11 @@ isSubmitted = obj["27"];
 }
 
     var ee = obj.id;
-   
+   //console.log('This ID is ' + ee);
 if(isSubmitted == "Complete"){
 $j("#btnEmpathy").detach();
-var empathy_entry_id = qs["empathy_entry_id"];
-$j('<form action="http://52.87.218.201/establish-empathy-form/" method="post"><button style="width:200px" class="sticky-list-edit submit">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+empathy_entry_id+'"></form>').appendTo('.EmpathyButton');
+//var empathy_entry_id = qs["empathy_entry_id"];
+$j('<form action="http://52.87.218.201/establish-empathy-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_empathy_id" value="'+obj.id+'"></form>').appendTo('.EmpathyButton');
 $j("#lblCompleteEE").css("visibility", "visible");
 /////////////////////////////////////Replacing with sticky list form button//////////////////////////
 /*$j("#btnEmpathy").html('Edit');
@@ -172,7 +472,7 @@ else{
 CanSubmit = false;
 $j("#btnEmpathy").html('Start');
 $j("#btnEmpathy").click(function() {
-    window.location.href = 'http://52.87.218.201/establish-empathy-form/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://52.87.218.201/establish-empathy-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }
     
@@ -182,7 +482,7 @@ else{
 if(qs["isCompleted"] == "Complete"){
 $j("#btnEmpathy").html('Start');
 $j("#btnEmpathy").click(function() {
-window.location.href = 'http://52.87.218.201/etablish-empathy-form/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://52.87.218.201/establish-empathy-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -234,7 +534,7 @@ url += '&search=' + MVCsearch;
         //get the data from the api
         if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
             //http request failed
-            document.write( 'There was an error attempting to access the API - ' + data.status + ': ' + data.response );
+            document.write( 'There was an error attempting to access the API - VALUE CHAIN fetch for Finish & Submit');
 
             return;
         }
@@ -256,8 +556,8 @@ isSubmitted = obj["12"];
 //if(qs["isCompleted"] == "Complete"){   
 if(isSubmitted == "Complete"){
 $j("#btnValueChain").detach();
-var mvc_entry_id = qs["mvc_entry_id"];
-$j('<form action="http://52.87.218.201/create-map-value-chain/" method="post"><button style="width:200px" class="sticky-list-edit submit">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+mvc_entry_id+'"></form>').appendTo('.ValueChainButton');
+//var mvc_entry_id = qs["mvc_entry_id"];
+$j('<form action="http://52.87.218.201/create-map-value-chain/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_mvc_id" value="'+obj.id+'"></form>').appendTo('.ValueChainButton');
 $j("#lblCompleteValueChain").css("visibility", "visible");
 /////////////////////////////////////Replacing with sticky list form button//////////////////////////
 /*$j("#btnValueChain").html('Edit');
@@ -271,7 +571,7 @@ CanSubmit = false;
 $j("#btnValueChain").html('Start');
 
 $j("#btnValueChain").click(function() {
-    window.location.href = 'http://52.87.218.201/create-map-value-chain/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://52.87.218.201/create-map-value-chain/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }    
 
@@ -283,7 +583,7 @@ else{
 if(qs["isCompleted"] == "Complete"){
 $j("#btnValueChain").html('Start');
 $j("#btnValueChain").click(function() {
-window.location.href = 'http://52.87.218.201/create-map-value-chain/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://52.87.218.201/create-map-value-chain/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -335,7 +635,7 @@ url += '&search=' + CSsearch;
         //get the data from the api
         if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
             //http request failed
-            document.write( 'There was an error attempting to access the API - ' + data.status + ': ' + data.response );
+            document.write( 'There was an error attempting to access the API - CREATE SOLUTIONS fetch for Finish & Submit');
 
             return;
         }
@@ -357,8 +657,8 @@ isSubmitted = obj["13"];
 //if(qs["isCompleted"] == "Complete"){   
 if(isSubmitted == "Complete"){
 $j("#btnCreateSolutions").detach();
-var cs_entry_id = qs["cs_entry_id"];
-$j('<form action="http://52.87.218.201/create-solutions-form/" method="post"><button style="width:200px" class="sticky-list-edit submit">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+cs_entry_id+'"></form>').appendTo('.CreateSolutionsButton');
+//var cs_entry_id = qs["cs_entry_id"];
+$j('<form action="http://52.87.218.201/create-solutions-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_cs_id" value="'+obj.id+'"></form>').appendTo('.CreateSolutionsButton');
 $j("#lblCompleteCS").css("visibility", "visible");
 
 }// Is the current map value chain complete
@@ -367,7 +667,7 @@ CanSubmit = false;
 $j("#btnCreateSolutions").html('Start');
 
 $j("#btnCreateSolutions").click(function() {
-    window.location.href = 'http://52.87.218.201/create-solutions-form/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://52.87.218.201/create-solutions-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }    
 
@@ -379,7 +679,7 @@ else{
 if(qs["isCompleted"] == "Complete"){
 $j("#btnCreateSolutions").html('Start');
 $j("#btnCreateSolutions").click(function() {
-window.location.href = 'http://52.87.218.201/create-solutions-form/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://52.87.218.201/create-solutions-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -432,7 +732,7 @@ url += '&search=' + BIsearch;
         //get the data from the api
         if ( data.status != 200 || ( typeof( data ) != 'object' ) ) {
             //http request failed
-            document.write( 'There was an error attempting to access the API - ' + data.status + ': ' + data.response );
+            document.write( 'There was an error attempting to access the API - BUSINESS INSIGHTS fetch for Finish & Submit');
 
             return;
         }
@@ -454,8 +754,8 @@ isSubmitted = obj["34"];
 //if(qs["isCompleted"] == "Complete"){   
 if(isSubmitted == "Complete"){
 $j("#btnBusinessInsights").detach();
-var bi_entry_id = qs["bi_entry_id"];
-$j('<form action="http://52.87.218.201/business-insights-form/" method="post"><button style="width:200px" class="sticky-list-edit submit">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+bi_entry_id+'"></form>').appendTo('.BusinessInsightsButton');
+//var bi_entry_id = qs["bi_entry_id"];
+$j('<form action="http://52.87.218.201/business-insights-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_bi_id" value="'+obj.id+'"></form>').appendTo('.BusinessInsightsButton');
 $j("#lblCompleteBI").css("visibility", "visible");
 
 }// Is the current map value chain complete
@@ -464,7 +764,7 @@ CanSubmit = false;
 $j("#btnBusinessInsights").html('Start');
 
 $j("#btnBusinessInsights").click(function() {
-    window.location.href = 'http://52.87.218.201/business-insights-form/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://52.87.218.201/business-insights-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }    
 
@@ -477,7 +777,7 @@ document.getElementById('myStatusPrompt').style.display = "none";
 if(qs["isCompleted"] == "Complete"){
 $j("#btnBusinessInsights").html('Start');
 $j("#btnBusinessInsights").click(function() {
-window.location.href = 'http://52.87.218.201/business-insights-form/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://52.87.218.201/business-insights-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -509,7 +809,7 @@ document.getElementById('mySubmitModal').style.display = "none";
 
 $j("#btnForwardInsights").click(function() {
 localStorage.setItem("Submit", "Yes");
-window.location.href = 'http://52.87.218.201/learn-connect/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+window.location.href = 'http://52.87.218.201/insights-successfully-submitted/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 
 });
 
@@ -546,18 +846,21 @@ orgspan.onclick = function() {
 if(qs["isCompleted"] == "Complete"){
 $j("#btnOrgProfile").detach();
 $j("#lblCompleteOrgProfile").css("visibility", "visible");
-var step3_entry_id = qs["step3_entry_id"];
-$j('<form action="http://52.87.218.201/organization-profile_step3/" method="post"><button style="width:200px" class="sticky-list-edit submit">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+step3_entry_id+'"></form>').appendTo('.OrgProfileButton');
+//var step3_id = GetStep3EntryID('org');//qs["step3_entry_id"];
+$j('<form action="http://52.87.218.201/organization-profile_step3/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_id" value="'+GetAnyEntryID('org')+'"></form>').appendTo('.OrgProfileButton');
 
 }
 else{
+if(qs["step1_entry_id"] == 'undefined'){
+$j("#btnOrgProfile").html('Start');
+}
 //var step1_entry_id = qs["step1_entry_id"]; 
 $j("#btnOrgProfile").click(function() {
 if(qs["step1_entry_id"] != 'undefined'){
-window.location.href = "/organization-profile_step3/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+window.location.href = "/organization-profile_step3/" + routes;//?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 }
 else{
-window.location.href = "/organizational-profile/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+window.location.href = "/organizational-profile/" + routes;//?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 }
 });
 //$j('<form action="http://52.87.218.201/organizational-profile/" method="post"><button style="width:200px" class="sticky-list-edit submit">Finish</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+ step1_entry_id +'"></form>').appendTo('.OrgProfileButton');

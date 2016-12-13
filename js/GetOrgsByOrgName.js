@@ -56,9 +56,11 @@ $j.ajax({
    			document.getElementById('myOrgPrompt').style.display = "none";
 			}
 	},
-    error: function(result, textStatus, errorThrown){console.log('error ' + errorThrown);}
+    error: function(result, textStatus, errorThrown){console.log('error ' + errorThrown + 'deleting org on step 2');}
 });
 }
+
+
 function UpdateOrganization(entryid,companyname,country,city,countrycode,hq){
 var qs = getQueryString();
 
@@ -110,7 +112,7 @@ if(errorOccured == "proceed"){
    			document.getElementById('myOrgPrompt').style.display = "none";
 			}
 		},
-            error: function(result, textStatus, errorThrown){alert('error ' + errorThrown);}
+            error: function(result, textStatus, errorThrown){console.log('error ' + errorThrown + ' updating org on step 2');}
         });
 }
 
@@ -122,12 +124,10 @@ $j(document).ready(function() {
 var qs = getQueryString();
 document.getElementById('myExistingOrgPrompt').style.display = "block";
 
-//var step1_entry_id = qs["step1_entry_id"];
-//$j('<form action="http://52.87.218.201/create-form-step-1/" method="post"><button style="width:200px" class="sticky-list-edit submit">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+step1_entry_id+'"></form>').appendTo('.btnEditOrgProfile');
 
 $j("#btnEditOrgProfile").click(function() {
 UpdateOrganization(qs["step1_entry_id"],$j("#input_2_1").val(),$j("#input_2_2").val(),$j("#input_2_7").val(),$j("#input_2_8").val(),$j("input[type='checkbox']").val())
-    //window.location.href = '/create-form-step-1-view/entry/' + qs["step1_entry_id"] + '/';
+    
 });
 
 function CalculateSig(stringToSign, privateKey){
@@ -150,17 +150,16 @@ function CalculateSig(stringToSign, privateKey){
     stringToSign = publicKey + ":" + method + ":" + route + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
     var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
-    var companyname = qs["company_name"];//$j("#input_2_1").val();
-    //var countryname = qs["country_name"];
-    //var cityname = qs["city_name"];
+    var companyname = qs["company_name"];
+    var res = companyname.split(" ");
+    var searchvalue = res[0] == "The" ? res[1] : res[0];
 
-    
     var search = {
         field_filters : [
             {
                 key: '1', //OrgName Field
                 operator: 'contains',
-                value: companyname 
+                value: searchvalue 
             },
          	{
                 key: 'id',
@@ -199,26 +198,33 @@ if(total_count > 0){
 	tr = $j("<tr />");
     
        var compname = obj["1"];
-       var isCompleted = obj["4"];
+       var isCompleted = obj["19"];
 
 
-       tr.append("<td class='orgname' style='text-align:center'>"+compname+"</td>");
-       tr.append("<td class='completed' style='text-align:center'>"+isCompleted+"</td>");
-       tr.append("<td class='id' style='text-align:center'>"+obj.id+"</td>");
-       tr.append("<td class='select'><button id='btnUpdateOrg' style='width:200px;margin-left:25%'>Select</button></td>");	   
+       tr.append("<td class='orgname' style='text-align:center;color:black'>"+compname+"</td>");
+       tr.append("<td class='completed' style='text-align:center;color:black'>"+isCompleted+"</td>");
+       tr.append("<td class='id' style='text-align:center;color:black'>"+obj.id+"</td>");
+       tr.append("<td class='select'><button id='btnUpdateOrg' class='secondary' style='background-color:#d6d6d6;color:black;width:200px;margin-left:25%'>Select</button></td>");	   
        tr.appendTo(tbody);
         
   });
-  tbody.appendTo("#table1"); // only DOM insertion
+  tbody.appendTo("#table1"); // only DOM insertion  
 $j("#table1").css("visibility","visible");
+document.getElementById('myExistingOrgPrompt').style.display = "none";
 $j("label[for='table1']").html("It appears that your organization name is similar to others in our database. If your organization is affiliated with any listed below, then please select the organization below. If not, then please click the Save & Continue button to proceed.");
 //('There are ' + total_count + ' Organizations that match your current entry');
 $j("label[for='table1']").css("visibility", "visible");
 
 }
+else{
+$j("label[for='table1']").html("Your Organization does match any current organizations");
+$j("label[for='table1']").css("visibility", "visible");
+document.getElementById('myExistingOrgPrompt').style.display = "none";
+
+}
 //alert(JSON.stringify(entries));
     });
-document.getElementById('myExistingOrgPrompt').style.display = "none";
+
 //Click event of Select Organization button
 $j("#btnUpdateOrg").live('click', function(){
     
@@ -235,29 +241,33 @@ $j("#btnUpdateOrg").live('click', function(){
                        .find(".completed")     // Gets a descendent with class="id"
                        .text();         // Retrieves the text within <td>     
        
-  
- //UpdateOrganization(qs["step1_entry_id"],orgname);
-DeleteOrganization(qs["step1_entry_id"]);//Might have to delete the current entry and replace its querystring value with the selected one?????
+var btext =   $j("#btnUpdateOrg").html();
+
+if(btext == 'Select'){
+UpdateOrganization(qs["step1_entry_id"],orgname,$j("#input_2_2").val(),$j("#input_2_7").val(),$j("#input_2_8").val(),$j("input[type='checkbox']").val());
+$j("#input_2_1").val(orgname);
+$j("#btnUpdateOrg").html('Deselect');
+}
+else{
+UpdateOrganization(qs["step1_entry_id"],qs["company_name"],$j("#input_2_2").val(),$j("#input_2_7").val(),$j("#input_2_8").val(),$j("input[type='checkbox']").val());
+$j("#input_2_1").val(qs["company_name"]);
+$j("#btnUpdateOrg").html('Select');
+}
+
+//DeleteOrganization(qs["step1_entry_id"]);//Might have to delete the current entry and replace its querystring value with the selected one?????
 localStorage.setItem("step1_entry_id", entry);
 localStorage.setItem("company_name", orgname);
-window.location.href = '/finish-submit/?company_name=' + orgname + '&step1_entry_id=' + entry + '&isCompleted=' + completed;
+
 });
 
 //$j("#anchorNextStep").css("visibility", "visible");
 var randomNumStep2 = Math.floor((Math.random() * 10) + 1)
 $j("#anchorNextStep").click(function(e){
-//var entryid = localStorage.getItem("step1_entry_id");//This is done so if the requirement is that the new org should be deleted when the select button is clicked the querystring wont break
-//var companyname = localStorage.getItem("company_name");//This is done so if the requirement is that the new org should be deleted when the select button is clicked the querystring wont break
-//$j("#anchorNextStep").attr("href", window.location.href = '/create-form-step-3/?company_name=' + companyname + '&step1_entry_id=' + entryid + '&step2_entry_id=' + randomNumStep2 + '&mvc_entry_id=' +qs["mvc_entry_id"]);
-$j("#anchorNextStep").attr("href", window.location.href = '/organization-profile_step3/?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + randomNumStep2 + '&mvc_entry_id=' +qs["mvc_entry_id"] + '&org_country=' + qs["org_country"] + '&org_city=' + qs["org_city"] + '&org_hq=' + qs["org_hq"] + '&co_code=' + qs["co_code"]);
-	
-});
 
-
+$j("#anchorNextStep").attr("href", window.location.href = '/organization-profile_step3/?company_name=' + $j("#input_2_1").val() + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + randomNumStep2 + '&mvc_entry_id=' +qs["mvc_entry_id"] + '&org_country=' + qs["org_country"] + '&org_city=' + qs["org_city"] + '&org_hq=' + qs["org_hq"] + '&co_code=' + qs["co_code"]);
 	
-//$j("label[for='OrgName']").html(qs["company_name"]);
-//$j("label[for='Location']").html('Tysons, VA');//HardCoded so remove when Form 1 is created
-//$j("label[for='HQ']").html('Yes');//HardCoded so remove when Form 1 is created
+});	
+
 
 });
 

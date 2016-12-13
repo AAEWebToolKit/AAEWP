@@ -30,11 +30,12 @@ $j(mvcbutton).insertBefore(".footer_wrap.layer_wrapper ");//Remove this once the
 $j("#pagesidebar").css("margin-top", "0");
 
 $j("#content").detach();
- 
+/* 
    if(qs["company_name"] != null){
    if(qs["company_name"] != 'undefined'){   
    if(qs["mvc_entry_id"] == ""){
 $j("#btnValueChain").css("visibility", "visible");
+$j("#btnValueChain").css("float", "none");
 $j("#btnValueChain").click(function(e){
 window.location.href = "/create-map-value-chain/?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&step2_entry_id=" + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"];;
 
@@ -43,7 +44,7 @@ window.location.href = "/create-map-value-chain/?company_name=" + qs["company_na
 else{
 $j("#btnValueChain").detach();
 var mvc_entry_id = qs["mvc_entry_id"];
-$j('<form action="http://52.87.218.201/create-map-value-chain/" method="post"><button style="margin-left:50%" class="sticky-list-edit submit">EDIT VALUE CHAIN MAPPING DATA</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+mvc_entry_id+'"></form>').insertBefore('#footer');//.insertBefore('#myLoginModal');
+$j('<form action="http://52.87.218.201/create-map-value-chain/" method="post"><button style="margin-left:50%;float:none" class="sticky-list-edit submit main">EDIT VALUE CHAIN MAPPING DATA</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+mvc_entry_id+'"></form>').insertBefore('#footer');//.insertBefore('#myLoginModal');
 
 }
 }
@@ -53,6 +54,6 @@ $j("#btnValueChain").detach();
 }
 else{
 $j("#btnValueChain").detach();
-}
+}*/
 });
 
