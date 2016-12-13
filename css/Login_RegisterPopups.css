@@ -12,7 +12,9 @@
 
  }
 
-
+.um-button{
+background-color:#26247B;
+}
 
 /* The Modal (background) */
 .modal {
@@ -164,13 +166,28 @@ display: none; /* Hidden by default */
 
 }
 
-
+/*
 span#close {
 position:absolute;
 right:-14px;
 top:-14px;
-cursor:pointer
+cursor:pointer;
+}*/
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 div#popupRegister {
 /*background-color: #fefefe;
 position:absolute;

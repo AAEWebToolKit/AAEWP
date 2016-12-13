@@ -11,6 +11,15 @@ background-color: #CC0000;/*red*/
     padding: 0;
 }
 
+.prevnextbtn {
+ background: none!important;
+ border:none;
+ padding:0!important;
+
+ color:#26247B;
+ cursor:pointer;
+}
+
 .main {
     background-color:  #26247B; /* Blue */
     border: none;
