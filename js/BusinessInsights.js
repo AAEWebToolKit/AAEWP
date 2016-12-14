@@ -58,7 +58,8 @@ $j( function() {
 
 
 $j(document).ready(function(){ 
-        $j("#gform_12").attr("onsubmit", "return validateForm()");
+    $j("#gform_12").attr("onsubmit", "return validateForm()");
+
 	$j.each(actionArray, function(idx,ele){
 
 		$j(ele.addBtnID).click(function(){
@@ -95,6 +96,7 @@ var addBtnClick = function(action){
 	appendToTable(jObj,action);
 	$j(action.jsonControlId).val(JSON.stringify(jArray));
 	$j(action.noDataLblId).css("visibility","hidden");
+	clearInputFields(action);
 }
 
 var deleteRow = function(event){
@@ -154,37 +156,47 @@ var appendToTable = function(jObj, action){
 	$j("td").css("text-align","center");
 }
 
-function validateForm(){
-var strenghtscatured = $j("#input_12_39").val();
-var challengescaptured = $j("#input_12_42").val();
-var barriercaptured = $j("#input_12_44").val();
-var opportunitycaptured = $j("#input_12_46").val();
-var needData = false;
-//Check Insights Captured
- if(strenghtscatured == ""){
-	if (challengescaptured == ""){
-	
-		if (barriercaptured == ""){
-	
-			if (opportunitycaptured == ""){
-				needData = true;
-			}
+var clearInputFields = function(action){
+	$j(action.dd1_Id +" option:selected").removeAttr('selected','')
+	$j(action.dd1_Id).parent().find('.chosen-container a span').text($j($j(action.dd1_Id + " option")[0]).text());
 
-		}
-	}
-        
-    }
- 
- 
- 
-    
-if (needData){
-	$j("#dialog-validate" ).dialog( "open" );
-         return false;         
-    }
-else{
-   return true;
+	$j(action.dd2_Id +" option:selected").removeAttr('selected','')
+	$j(action.dd2_Id).parent().find('.chosen-container a span').text($j($j(action.dd2_Id + " option")[0]).text());
+
+	$j(action.comments).val('');
 }
+
+function validateForm(){
+	var strenghtscatured = $j("#input_12_39").val();
+	var challengescaptured = $j("#input_12_42").val();
+	var barriercaptured = $j("#input_12_44").val();
+	var opportunitycaptured = $j("#input_12_46").val();
+	var needData = false;
+	//Check Insights Captured
+	 if(strenghtscatured == ""){
+		if (challengescaptured == ""){
+		
+			if (barriercaptured == ""){
+		
+				if (opportunitycaptured == ""){
+					needData = true;
+				}
+
+			}
+		}
+	        
+	    }
+	 
+	 
+	 
+	    
+	if (needData){
+		$j("#dialog-validate" ).dialog( "open" );
+	         return false;         
+	    }
+	else{
+	   return true;
+	}
 
 }
 //END FUNCTIONS

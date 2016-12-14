@@ -56,6 +56,7 @@ $j(document).ready(function(){
 		appendToTable(jObj);
 		$j("#input_13_31").val(JSON.stringify(jArray));
 		$j("#lblNoStakeHolders").css("visibility","hidden");
+		clearInputFields();
 	});
 
 	$j(".deleteStakeHolder").live( "click", function(e) {
@@ -119,6 +120,21 @@ var getjObj = function(){
 	return jObj;
 }
 
+var clearInputFields = function(){
+	$j("#input_13_1").val('');
+	$j("#input_13_2").val('');
+	
+	$j("#input_13_3 option:selected").removeAttr('selected','')
+	$j("#input_13_3").parent().find('.chosen-container a span').text($j($j("#input_13_3 option")[0]).text());
+
+	$j("#input_13_4 option:selected").removeAttr('selected','');
+	$j("#input_13_4").parent().find('.chosen-container a span').text($j($j("#input_13_4 option")[0]).text());
+
+	$j("#input_13_17 input:checked").removeAttr('checked')
+	$j("#input_13_9").val('');
+	$j("#input_13_10").val('');
+    $j.each($j("#input_13_11 input:checked"),function(idx,ele){$j(ele).removeAttr("checked")})
+}
 
 var buildTable = function(){
 	var jsonVal = $j("#input_13_31").val();

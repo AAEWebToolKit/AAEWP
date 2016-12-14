@@ -42,7 +42,8 @@ $j( function() {
  });
 
 $j(document).ready(function(){ 
-        $j("#gform_14").attr("onsubmit", "return validateForm()");
+    $j("#gform_14").attr("onsubmit", "return validateForm()");
+
 	$j("#btnAddSolution").click(function(){
 		addBtnClick(solutions);
 	});
@@ -76,6 +77,7 @@ var addBtnClick = function(action){
 	appendToTable(jObj,action);
 	$j(action.jsonControlId).val(JSON.stringify(jArray));
 	$j(action.noDataLblId).css("visibility","hidden");
+	clearInputFields(action);
 }
 
 var deleteRow = function(event){
@@ -142,16 +144,24 @@ var appendToTable = function(jObj, action){
 	$j(action.tblId + ' tr:last').after('<tr>' + td_dd1 + td_comment + tdDelete +'</tr>');
 	$j("td").css("text-align","center");
 }
-function validateForm(){
-var solutionscaptured = $j("#input_14_19").val();
 
-//Check Insights Captured
-if(soutionscaptured == ""){   
-        $j("#dialog-validate" ).dialog( "open" );
-         return false;
-    }
-    else{
-         return true;         
-    }
+var clearInputFields = function(action){
+	$j(action.dd1_Id +" option:selected").removeAttr('selected','')
+	$j(action.dd1_Id).parent().find('.chosen-container a span').text($j($j(action.dd1_Id + " option")[0]).text());
+
+	$j(action.comments).val('');
+}
+
+function validateForm(){
+	var solutionscaptured = $j("#input_14_19").val();
+
+	//Check Insights Captured
+	if(soutionscaptured == ""){   
+	    $j("#dialog-validate" ).dialog( "open" );
+	     return false;
+	}
+	else{
+	     return true;         
+	}
 }
 //END FUNCTIONS
