@@ -35,10 +35,24 @@ background-color: #CC0000;/*red*/
 }
 
 .finsub {
-    background-color: #E0E0E0; /* Gray */
+    background-color: #32C7B1; /* Green */
     border: none;
-    color: black;
+    color: white;
     font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 256px;    
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.secondary {
+    background-color: #32C7B1; /* Green */
+    border: none;
+    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -48,17 +62,8 @@ background-color: #CC0000;/*red*/
     cursor: pointer;
 }
 
-.secondary {
-    background-color: #E0E0E0; /* Gray */
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+#wp-admin-bar-search {
+	visibility:hidden;
 }
 
 #wp-admin-bar-site-name, #wp-admin-bar-wp-logo{
@@ -140,7 +145,7 @@ margin-right:5px;
 
 .aae-box-style {
 	width: 98%;
-	border: solid 1px gray;
+	border: solid 1px #bcbdc0;
 	padding: 5px;
 }
 
