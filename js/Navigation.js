@@ -89,9 +89,11 @@ $j(document).ready(function() {
     var lgnButton = document.getElementsByClassName("um-button");
     $j(lgnButton[0]).click(function(e){
      //alert('Here');
-      localStorage.setItem("LoginStatus", "False");      
+      localStorage.setItem("LoginStatus", "False");            
     });
   if ($j(".display-name")[0]){
+       $j("#wp-admin-bar-search").detach();
+      $j("#wp-admin-bar-my-account").find("a").text().replace("Howdy, " , "");
     //Logout button
    var z = document.getElementsByClassName("ab-item");
     $j(z[z.length - 1]).click(function(e){
@@ -106,6 +108,7 @@ $j(document).ready(function() {
 	localStorage.removeItem("company_name");
         localStorage.removeItem("OrgName");
         localStorage.removeItem("attemptType");
+	localStorage.removeItem("ColorPicker");
     });
     
      //Profile button
@@ -121,22 +124,27 @@ var orgname = qs["company_name"];
 if(orgname != 'undefined'){
 if(orgname != 'null'){
 if(orgname != null){
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>Organization List</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 $j("#labelOrgName").html(orgname);
 }
 else{
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>Organization List</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 }
 }
 else{
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>Organization List</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 }
 }
 else{
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>Organization List</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 }
+
+$j("#orglist").find("a").click(function() {
+localStorage.removeItem("ColorPicker");
+
+});
     //$j('.site-header').prepend("<h3 id='anchorOrgList' style='margin-bottom:0'><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;color:black;font-size:large;margin-left:80%;margin-bottom:0' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:large;margin-bottom:0' href='/organization-list/'>Organization List</a></h3>"); 
- //$j("<h3 id='anchorOrgList'><label id='lablelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'>Test Org Name</label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>Organization List</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+ //$j("<h3 id='anchorOrgList'><label id='lablelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'>Test Org Name</label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 var y = document.getElementById("anchorUserProfile");
 
     y.href = y.href.replace("default", username[0].innerHTML);
@@ -155,7 +163,7 @@ var y = document.getElementById("anchorUserProfile");
         
      localStorage.setItem("LoginStatus", "True"); 
         var route = localStorage.getItem("clicked");
-alert(route);
+//alert(route);
          localStorage.setItem("clicked", "Flushed");
      GetStartedFunction(route);
       }
@@ -211,6 +219,24 @@ else {
 var randomNumStep2 = Math.floor((Math.random() * 10) + 1);
 //console.log(localStorage.getItem("MenuLink"));
 
+$j("#topmenu").css("margin-top", "0");
+$j("#menu-item-2532").find("a").click(function() {
+localStorage.setItem("ColorPicker", "Home");
+  
+});
+$j("#menu-item-31").find("a").click(function() {
+localStorage.setItem("ColorPicker", "JM");
+
+});
+$j("#menu-item-32").find("a").click(function() {
+localStorage.setItem("ColorPicker", "CI");
+
+});
+$j("#menu-item-33").find("a").click(function() {
+localStorage.setItem("ColorPicker", "LC");
+
+});
+
 if(localStorage.getItem("MenuLink") != null){
 var routeparams = localStorage.getItem("MenuLink");
 //console.log('Here in Nav Menu');
@@ -236,4 +262,28 @@ $j("#menu-item-33").find("a").attr("href", "/learn-connect/?company_name=" + qs[
 
 }   
 
+ var page = localStorage.getItem("ColorPicker");
+switch(page) {
+    case "Home":
+$j("#menu-item-2532").find("a").find("img").attr("src", "/wp-content/uploads/2016/12/but_profile_sel-1.png");
+
+$j("#menu-item-2532").find("a").css("background-color", "#f1472c");
+ break;
+     case "JM":
+$j("#menu-item-31").find("a").find("img").attr("src", "/wp-content/uploads/2016/12/but_map_sel-1.png");
+$j("#menu-item-31").find("a").css("background-color", "#f1472c");
+ break;
+   case "CI":
+$j("#menu-item-32").find("a").find("img").attr("src", "/wp-content/uploads/2016/12/but_capture_sel-1.png");
+$j("#menu-item-32").find("a").css("background-color", "#f1472c");
+ break;
+   case "LC":
+$j("#menu-item-33").find("a").find("img").attr("src", "/wp-content/uploads/2016/12/but_learn_sel-1.png");
+$j("#menu-item-33").find("a").css("background-color", "#f1472c");
+ break;
+default:
+$j("#menu-item-2532").find("a").find("img").attr("src", "/wp-content/uploads/2016/12/but_profile_sel-1.png");
+$j("#menu-item-2532").find("a").css("background-color", "#f1472c");
+
+}
 });

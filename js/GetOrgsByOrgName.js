@@ -152,7 +152,7 @@ function CalculateSig(stringToSign, privateKey){
     var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     var companyname = qs["company_name"];
     var res = companyname.split(" ");
-    var searchvalue = res[0] == "The" ? res[1] : res[0];
+    var searchvalue = res[0] == "The" ? res[1] : res[0] == "A" ? res[1] : res[0];
 
     var search = {
         field_filters : [
@@ -217,7 +217,7 @@ $j("label[for='table1']").css("visibility", "visible");
 
 }
 else{
-$j("label[for='table1']").html("Your Organization does match any current organizations");
+$j("label[for='table1']").html("Your Organization does not match any current organization, please click the SAVE & CONTINUE button below to continue.");
 $j("label[for='table1']").css("visibility", "visible");
 document.getElementById('myExistingOrgPrompt').style.display = "none";
 

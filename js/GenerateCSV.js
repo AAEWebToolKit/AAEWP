@@ -9,6 +9,53 @@
     var privateKey = "d6c574f9f4f6a70";
     var method = "GET";
     
+function CreateTableFromJSON(objArray, tableName) {
+
+        // EXTRACT VALUE FOR HTML HEADER. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = [];
+        for (var i = 0; i < objArray.length; i++) {
+            for (var key in objArray[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+        table.setAttribute("id", tableName);
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < objArray.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = objArray[i][col[j]];
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("ApiData");
+        //divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+
+if(tableName == 'table5'){
+
+document.getElementById('myStatusPrompt').style.display = "none";
+}
+    }
 
 function CalculateSig(stringToSign, privateKey){
         //calculate the signature needed for authentication
@@ -101,7 +148,10 @@ console.log(workbookXML);
 ////////////////////////////////////////////////////////////////////////////////START BUIDING TABLES TO EXPORT//////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////TABLE PROFILE///////////////////////////////////////////////////////////////////////////////////////
  $j(document).ready(function() { 
- 
+ var isSubmitted = localStorage.getItem("Submit");
+if(isSubmitted == "Yes"){
+document.getElementById('myStatusPrompt').style.display = "block";
+}
     var route = "forms/3/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + route + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
@@ -142,11 +192,12 @@ url += '&search=' + search;
         response  = data.response;
         entries   = response.entries; //entries is a collection of Entry objects
         total_count = response.total_count;
+        CreateTableFromJSON(entries, 'table1');
 
 // here is your success from AJAX
 //alert(JSON.stringify(entries));
  var tbody = $j("<tbody />"),tr;
-
+/*
   $j.each(entries,function(_,obj) {
 	tr = $j("<tr />");
    
@@ -161,8 +212,8 @@ var hq = obj["77.1"];
       	tr.appendTo(tbody);
         
   });
-tbody.appendTo("#table1"); // only DOM insertion
-
+tbody.appendTo("#table11"); // only DOM insertion
+*/
 //alert(JSON.stringify(entries));
 });//ajax call ends here
 ////////////////////////////////////////////////////////////////////////////////////////////////////END TABLE PROFILE///////////////////////////////////////////////////////////////////////////////
@@ -205,11 +256,12 @@ VCurl += '&search=' + VCsearch;
         VCresponse  = VCdata.response;
         VCentries  = VCresponse.entries; //entries is a collection of Entry objects
         total_count = VCresponse.total_count;
+        CreateTableFromJSON(VCentries, 'table2');
 
 // here is your success from AJAX
 //alert(JSON.stringify(VCentries));
  var VCtbody = $j("<tbody />"),tr;
-
+/*
   $j.each(VCentries,function(_,VCobj) {
 	VCtr = $j("<tr />");
    
@@ -223,8 +275,8 @@ var completed = VCobj["12"];
        VCtr.appendTo(VCtbody);
         
   });
-VCtbody.appendTo("#table2"); // only DOM insertion
-
+VCtbody.appendTo("#table12"); // only DOM insertion
+*/
 //alert(JSON.stringify(VCentries));
 });//ajax call ends here
 
@@ -268,11 +320,12 @@ EEurl += '&search=' + EEsearch;
         EEresponse  = EEdata.response;
         EEentries  = EEresponse.entries; //entries is a collection of Entry objects
         total_count = EEresponse.total_count;
+        CreateTableFromJSON(EEentries, 'table3');
 
 // here is your success from AJAX
 //alert(JSON.stringify(EEentries));
  var EEtbody = $j("<tbody />"),tr;
-
+/*
   $j.each(EEentries,function(_,EEobj) {
 	EEtr = $j("<tr />");
    
@@ -286,8 +339,8 @@ var completed = EEobj["27"];
       EEtr.appendTo(EEtbody);
         
   });
-EEtbody.appendTo("#table3"); // only DOM insertion
-
+EEtbody.appendTo("#table13"); // only DOM insertion
+*/
 //alert(JSON.stringify(EEentries));
 });//ajax call ends here
 ////////////////////////////////////////////////////////////////////////////////////////////////////END EMPATHY////////////////////////////////////////////////////////////////////////////////////
@@ -330,11 +383,11 @@ BIurl += '&search=' + BIsearch;
         BIresponse  = BIdata.response;
         BIentries  = BIresponse.entries; //entries is a collection of Entry objects
         total_count = BIresponse.total_count;
-
+        CreateTableFromJSON(BIentries, 'table4');
 // here is your success from AJAX
 //alert(JSON.stringify(BIentries));
  var BItbody = $j("<tbody />"),tr;
-
+/*
   $j.each(BIentries,function(_,BIobj) {
 	BItr = $j("<tr />");
    
@@ -348,8 +401,8 @@ var completed = BIobj["34"];
       BItr.appendTo(BItbody);
         
   });
-BItbody.appendTo("#table4"); // only DOM insertion
-
+BItbody.appendTo("#table14"); // only DOM insertion
+*/
 //alert(JSON.stringify(BIentries));
 });//ajax call ends here
 
@@ -394,11 +447,11 @@ CSurl += '&search=' + CSsearch;
         CSresponse  = CSdata.response;
         CSentries  = CSresponse.entries; //entries is a collection of Entry objects
         total_count = CSresponse.total_count;
-
+        CreateTableFromJSON(CSentries, 'table5');
 // here is your success from AJAX
 //alert(JSON.stringify(CSentries));
  var CStbody = $j("<tbody />"),tr;
-
+/*
   $j.each(CSentries,function(_,CSobj) {
 	CStr = $j("<tr />");
    
@@ -412,8 +465,8 @@ var completed = CSobj["13"];
       CStr.appendTo(BItbody);
         
   });
-CStbody.appendTo("#table5"); // only DOM insertion
-
+CStbody.appendTo("#table15"); // only DOM insertion
+*/
 //alert(JSON.stringify(CSentries));
 });//ajax call ends here
 

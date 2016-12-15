@@ -158,15 +158,16 @@ var location = obj["7"];
 var bi_id = obj["18"];
 var cs_id = obj["16"];
 var modified = obj["20"];
+
 var sector = obj["21"];
 
 var hq = obj["4.1"];
 
-       tr.append("<td style='text-align:center;color:black'><a class='orgname' style='font-weight:bold' href='#'>"+compname+"</a></td>");
-       tr.append("<td style='text-align:center;color:black'><a class='location'>"+location+"</a></td>");
+       tr.append("<td style='text-align:left;color:black'><a class='orgname' style='font-weight:bold' href='#'>"+compname+"</a></td>");
+       tr.append("<td style='text-align:left;color:black'><a class='location'>"+location+"</a></td>");
        tr.append("<td style='text-align:center;color:black'><a class='hq'>"+hq+"</a></td>");
        tr.append("<td style='text-align:center;color:black'><a class='sector'>"+sector+"</a></td>");
-       tr.append("<td style='text-align:center;color:black'><a class='modified'>"+modified+"</a></td>");
+       tr.append("<td style='text-align:center;color:black'><a class='modified'>"+modified.slice(3, modified.length)+"</a></td>");
 if(submitted == 'Submitted'){
 	tr.append("<td  style='color:green;font-weight:bold;text-align:center' class='form_submitted'>"+submitted+"</td>");
 }
