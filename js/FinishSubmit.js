@@ -50,7 +50,19 @@ if(routeparams == null || routeparams == 'null'){
 switch(page) {
     case "fs":
 //console.log('Here1');
-$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;margin-left: 10%;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
+$j(".single_post_content").prepend('<h3 id="FSNav" style="background-color:#f3f3f4;margin-top:0;margin-bottom:0;height:100px"><a id="anchorE" style="color: #f1472c; text-decoration: underline;"><img id="empathy_sel" src="/wp-content/uploads/AAEWP/images/but_empathy.png"></img></a><a id="anchorB" style="color: black;text-decoration:underline;"><img src="/wp-content/uploads/AAEWP/images/but_insights.png"></img></a><a id="anchorC" style="color: black;text-decoration:underline;"><img src="/wp-content/uploads/AAEWP/images/but_solutions.png"></img></a><a id="anchorFS" style="color: black;"><img src="/wp-content/uploads/AAEWP/images/but_finish_sel.png"></img></a></h3>');
+var navbar = $j("#FSNav").find("a");
+
+//$j((navbar)[0]).find("img").css("width", "250px");
+
+//$j((navbar)[1]).find("img").css("width", "250px");
+
+//$j((navbar)[2]).find("img").css("width", "250px");
+
+//$j((navbar)[3]).find("img").css("width", "250px");
+
+
+//$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
 
 $j("#anchorB").attr("href", "http://52.87.218.201/capture-insights-business-insights/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
 
@@ -73,7 +85,19 @@ else{
 switch(page) {
     case "fs":
 //console.log('Here2');
-$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;margin-left: 10%;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
+$j(".single_post_content").prepend('<h3 id="FSNav" style="background-color:#f3f3f4;margin-top:0;margin-bottom:0;height:100px"><a id="anchorE" style="color: #f1472c; text-decoration: underline;"><img id="empathy_sel" src="/wp-content/uploads/AAEWP/images/but_empathy.png"></img></a><a id="anchorB" style="color: black;text-decoration:underline;"><img src="/wp-content/uploads/AAEWP/images/but_insights.png"></img></a><a id="anchorC" style="color: black;text-decoration:underline;"><img src="/wp-content/uploads/AAEWP/images/but_solutions.png"></img></a><a id="anchorFS" style="color: black;"><img src="/wp-content/uploads/AAEWP/images/but_finish_sel.png"></img></a></h3>')
+
+var navbar = $j("#FSNav").find("a");
+
+//$j((navbar)[0]).find("img").css("width", "250px");
+
+//$j((navbar)[1]).find("img").css("width", "250px");
+
+//$j((navbar)[2]).find("img").css("width", "250px");
+
+//$j((navbar)[3]).find("img").css("width", "250px");
+
+//$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
 $j("#anchorB").attr("href","http://52.87.218.201/capture-insights-business-insights/" + routeparams);// "http://52.87.218.201/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
 
 $j("#anchorC").attr("href","http://52.87.218.201/capture-insights-create-solutions/" + routeparams);// "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);

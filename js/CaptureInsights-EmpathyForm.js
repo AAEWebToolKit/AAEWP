@@ -103,9 +103,11 @@ var getjObj = function(){
 	var sFeeling = $j("#input_13_17 input:checked").val()
 	var sSaying = $j("#input_13_9").val();
 	var sDoing = $j("#input_13_10").val();
+
     var sMotivations = $j("#input_13_11 input:checked").map(function() {
 						    return this.value;
 						}).get().join(",");
+    var sOtherMotivation = $j("#input_13_39").val();
 
 	jObj.sFirstName = sFirstName;
 	jObj.sLastName = sLastName;
@@ -115,6 +117,7 @@ var getjObj = function(){
 	jObj.sSaying = sSaying;
 	jObj.sDoing = sDoing;
 	jObj.sMotivations = sMotivations;
+	jObj.sOtherMotivation = sOtherMotivation
 	jObj.id = Math.floor(Math.random() * 26) + Date.now();
 
 	return jObj;
@@ -130,7 +133,8 @@ var clearInputFields = function(){
 	$j("#input_13_4 option:selected").removeAttr('selected','');
 	$j("#input_13_4").parent().find('.chosen-container a span').text($j($j("#input_13_4 option")[0]).text());
 
-	$j("#input_13_17 input:checked").removeAttr('checked')
+	$j("#input_13_17 input:checked").removeAttr('checked');
+	$j("#input_13_39").val('');
 	$j("#input_13_9").val('');
 	$j("#input_13_10").val('');
     $j.each($j("#input_13_11 input:checked"),function(idx,ele){$j(ele).removeAttr("checked")})
