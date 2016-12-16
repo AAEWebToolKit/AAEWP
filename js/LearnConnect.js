@@ -9,7 +9,6 @@ var future_unixtime = unixtime + expiration;
 var publicKey = "293dabb883";
 var privateKey = "d6c574f9f4f6a70";
 
-
 function CalculateSig(stringToSign, privateKey){
     //calculate the signature needed for authentication
     var hash = CryptoJS.HmacSHA1(stringToSign, privateKey);
@@ -113,8 +112,7 @@ $j.get(get_url4, function(data, textStatus)
         entry_json = JSON.stringify(entries);
 
         //update the entries
-        
-	$j.ajax({
+        $j.ajax({
             url: put_url,
             type: 'PUT',
             data: entry_json,
@@ -135,7 +133,7 @@ if(baseURLEntry.indexOf("http://52.87.218.201/insights-successfully-submitted/")
 var isSubmitted = localStorage.getItem("Submit");
 var qs = getQueryString();
 
-//console.log(isSubmitted);
+console.log(isSubmitted);
 $j(document).ready(function() {
 
 if ($j(".display-name")[0]){

@@ -1,6 +1,23 @@
 var $j = jQuery.noConflict();
-var url = window.location.href; 
+var url = window.location.href;
+ 
+function getQueryString() { 
+  var assoc  = {};
+  var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+  var queryString = location.search.substring(1); 
+  var keyValues = queryString.split('&'); 
 
+  for(var i in keyValues) { 
+    var key = keyValues[i].split('=');
+    if (key.length > 1) {
+      assoc[decode(key[0])] = decode(key[1]);
+    }
+  } 
+
+  return assoc; 
+}
+
+var qs = getQueryString();
 
  function initialize() { 
             //var e = document.getElementById("ddlViewBy");
@@ -74,7 +91,8 @@ case "input_7":
 break;
 case "input_4.1":
 //HeadQuarters
-var IsChecked = newval = "Yes" ? "Yes" : "No";
+console.log(newval);
+var IsChecked = qs["org_hq"] == "Yes, this location is the headquarters for our organization" ? true : false;
 if(IsChecked){
   $j("#choice_2_4_1").prop('checked', true);
 }

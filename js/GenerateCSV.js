@@ -8,6 +8,7 @@
     var publicKey = "293dabb883";
     var privateKey = "d6c574f9f4f6a70";
     var method = "GET";
+
     
 function CreateTableFromJSON(objArray, tableName) {
 
@@ -34,7 +35,8 @@ function CreateTableFromJSON(objArray, tableName) {
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       if(tableName == 'table1'){
         // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 0; i < objArray.length; i++) {
 
@@ -42,20 +44,145 @@ function CreateTableFromJSON(objArray, tableName) {
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = objArray[i][col[j]];
+                if(col[j] == '85'){
+		   //console.log('Im column 85');
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                }
+                else if(col[j] == '83')
+		{
+                    console.log('Im column 83');
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+		}
+                else{
+                  tabCell.innerHTML = objArray[i][col[j]];
+                }
+                
+            }
+          }
+	}
+        else if(tableName == 'table3'){
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < objArray.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                if(col[j] == '31'){
+		   
+                   tabCell.innerHTML = objArray[i][col[j]] == ""? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                }                
+                else{
+                  tabCell.innerHTML = objArray[i][col[j]];
+                }
+                
+            }
+          }
+	}
+        else if(tableName == 'table4'){
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < objArray.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                if(col[j] == '39'){		   
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                } 
+                else if(col[j] == '42'){
+		   
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                }
+                else if(col[j] == '44'){
+		   
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                }
+                else if(col[j] == '46'){
+		   
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                }                   
+                else{
+                  tabCell.innerHTML = objArray[i][col[j]];
+                }
+                
+            }
+          }
+	}
+        else if(tableName == 'table5'){
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < objArray.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                if(col[j] == '19'){
+		   
+                   tabCell.innerHTML = objArray[i][col[j]] == "" ? objArray[i][col[j]] : ConvertJSON(objArray[i][col[j]]);
+                }                                
+                else{
+                  tabCell.innerHTML = objArray[i][col[j]];
+                }
+                
+            }
+          }
+	} 
+        else{
+             // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < objArray.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+               
+                  tabCell.innerHTML = objArray[i][col[j]];                
+                
             }
         }
 
+	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("ApiData");
         //divContainer.innerHTML = "";
         divContainer.appendChild(table);
 
-if(tableName == 'table5'){
+	if(tableName == 'table5'){
 
-document.getElementById('myStatusPrompt').style.display = "none";
+	    document.getElementById('myStatusPrompt').style.display = "none";
+	}
 }
-    }
+
+function count(obj){
+ return Object.keys(obj).length;
+}
+
+
+function ConvertJSON(rowData){
+var stringconcat = "";
+var jsonArray = JSON.parse(rowData);
+//console.log(jsonArray);
+for(var i=0; i<jsonArray.length; i++) {
+
+var counter = jsonArray[i];
+var position = count(counter);
+console.log(position + 'Code made it here');
+var positioncount = 1;
+
+for(var key in counter){
+if(positioncount < position){
+   stringconcat =  stringconcat + key + ':' + counter[key] + ' | ';
+}
+else{
+ stringconcat = stringconcat + key + ':' + counter[key] + ' - '  + '(' + (i + 2)+ ')';
+}
+ positioncount = positioncount + 1;
+}// nested for ends
+}// outer for ends
+return stringconcat;
+}//function ends
 
 function CalculateSig(stringToSign, privateKey){
         //calculate the signature needed for authentication

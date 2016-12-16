@@ -204,7 +204,7 @@ if(total_count > 0){
        tr.append("<td class='orgname' style='text-align:center;color:black'>"+compname+"</td>");
        tr.append("<td class='completed' style='text-align:center;color:black'>"+isCompleted+"</td>");
        tr.append("<td class='id' style='text-align:center;color:black'>"+obj.id+"</td>");
-       tr.append("<td class='select'><button id='btnUpdateOrg' class='secondary' style='background-color:#d6d6d6;color:black;width:200px;margin-left:25%'>Select</button></td>");	   
+       tr.append("<td class='select'><button id='btnUpdateOrg' class='secondary' style='width:200px;margin-left:25%'>Select</button></td>");	   
        tr.appendTo(tbody);
         
   });
