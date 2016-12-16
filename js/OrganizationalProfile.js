@@ -1,7 +1,7 @@
 var $j = jQuery.noConflict();
 var url = window.location.href; 
 
-   if(url == "http://52.87.218.201/organizational-profile/"){     
+   if(url == "http://34.195.47.189/organizational-profile/"){     
       var OrgProfileData = localStorage.getItem("OrgProfileForm");
      //alert(OrgProfileData);
      if(localStorage.getItem("OrgProfileForm") != "Empty"){ 

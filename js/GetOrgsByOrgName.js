@@ -43,7 +43,7 @@ var route = "entries/" + entryid;
 
 stringToSign = publicKey + ":" + this_method + ":" + route + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var url = 'http://34.195.47.189/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.ajax({
     url: url,
@@ -67,12 +67,12 @@ var qs = getQueryString();
 //create signature and url for putting entries
 stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var put_url = 'http://52.87.218.201/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var put_url = 'http://34.195.47.189/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + entryid + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url4 = 'http://52.87.218.201/gravityformsapi/entries/' + entryid + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url4 = 'http://34.195.47.189/gravityformsapi/entries/' + entryid + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 var errorOccured = "proceed";
 $j.get(get_url4, function(data, textStatus)
@@ -119,7 +119,7 @@ if(errorOccured == "proceed"){
 });
 }
 
-if(baseURLEntry.indexOf("http://52.87.218.201/organizational-profile-step2/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/organizational-profile-step2/") > -1){
 $j(document).ready(function() {
 var qs = getQueryString();
 document.getElementById('myExistingOrgPrompt').style.display = "block";
@@ -149,7 +149,7 @@ function CalculateSig(stringToSign, privateKey){
 
     stringToSign = publicKey + ":" + method + ":" + route + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var url = 'http://34.195.47.189/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     var companyname = qs["company_name"];
     var res = companyname.split(" ");
     var searchvalue = res[0] == "The" ? res[1] : res[0] == "A" ? res[1] : res[0];

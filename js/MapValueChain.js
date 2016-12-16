@@ -44,7 +44,7 @@ window.location.href = "/create-map-value-chain/?company_name=" + qs["company_na
 else{
 $j("#btnValueChain").detach();
 var mvc_entry_id = qs["mvc_entry_id"];
-$j('<form action="http://52.87.218.201/create-map-value-chain/" method="post"><button style="margin-left:50%;float:none" class="sticky-list-edit submit main">EDIT VALUE CHAIN MAPPING DATA</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+mvc_entry_id+'"></form>').insertBefore('#footer');//.insertBefore('#myLoginModal');
+$j('<form action="http://34.195.47.189/create-map-value-chain/" method="post"><button style="margin-left:50%;float:none" class="sticky-list-edit submit main">EDIT VALUE CHAIN MAPPING DATA</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+mvc_entry_id+'"></form>').insertBefore('#footer');//.insertBefore('#myLoginModal');
 
 }
 }

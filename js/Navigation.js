@@ -18,19 +18,19 @@ var privateKey = "d6c574f9f4f6a70";
 
 function SetMenuLinks(){
 var entry = qs["step1_entry_id"];
-//var link = "http://52.87.218.201/create-form-step-3-view/entry/" + qs["step3_entry_id"];
+//var link = "http://34.195.47.189/create-form-step-3-view/entry/" + qs["step3_entry_id"];
 
 
 //create signature and url for putting entries
 stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-//var put_url = 'http://52.87.218.201/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+//var put_url = 'http://34.195.47.189/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + entry + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
 
-var get_url1 = 'http://52.87.218.201/gravityformsapi/entries/' + entry + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url1 = 'http://34.195.47.189/gravityformsapi/entries/' + entry + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 var errorOccured = "proceed";
 $j.get(get_url1, function(data, textStatus)
 {
@@ -120,38 +120,40 @@ var head = document.getElementsByClassName("center");
    var WholeName = document.getElementsByClassName("display-name");
     localStorage.setItem("WholeName", WholeName[0].innerHTML);
 var orgname = qs["company_name"];
+var str
+
 //console.log(orgname + ' setting in nav file');
 if(orgname != 'undefined'){
 if(orgname != 'null'){
 if(orgname != null){
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://34.195.47.189/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 $j("#labelOrgName").html(orgname);
 }
 else{
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://34.195.47.189/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 }
 }
 else{
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://34.195.47.189/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 }
 }
 else{
-$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+$j("<h3 id='anchorOrgList' style='margin-bottom:0;margin-top:0'><label id='labelOrgName' style='margin-bottom:0;margin-top:0;margin-left:15%;color:#f1472c;font-size:small'></label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://34.195.47.189/user/default/?um_action=edit'>My Account</a><em> | </em><a id='orglist' style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 }
 
 $j("#orglist").find("a").click(function() {
 localStorage.removeItem("ColorPicker");
 
 });
-    //$j('.site-header').prepend("<h3 id='anchorOrgList' style='margin-bottom:0'><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;color:black;font-size:large;margin-left:80%;margin-bottom:0' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:large;margin-bottom:0' href='/organization-list/'>Organization List</a></h3>"); 
- //$j("<h3 id='anchorOrgList'><label id='lablelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'>Test Org Name</label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://52.87.218.201/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
+    //$j('.site-header').prepend("<h3 id='anchorOrgList' style='margin-bottom:0'><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;color:black;font-size:large;margin-left:80%;margin-bottom:0' href='http://34.195.47.189/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:large;margin-bottom:0' href='/organization-list/'>Organization List</a></h3>"); 
+ //$j("<h3 id='anchorOrgList'><label id='lablelOrgName' style='margin-bottom:0;margin-top:0;margin-left:25%;color:black;font-size:small'>Test Org Name</label><a class='ab-item' id='anchorUserProfile' style='font-weight:bold;font-size:small;color:black;margin-bottom:0;margin-top:0;margin-left:35%' href='http://34.195.47.189/user/default/?um_action=edit'>My Account</a><em> | </em><a style='font-weight:bold;color:black;font-size:small;margin-bottom:0;margin-top:0' href='/organization-list/'>My Workshops</a></h3>").appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');    
 var y = document.getElementById("anchorUserProfile");
 
     y.href = y.href.replace("default", username[0].innerHTML);
 
 //style='margin-bottom:0;margin-top:0;margin-left:75%'   
 /////////////////////////////////////////////////////////////////This line will insert the Edit Profile link in the Word Press DropDown///////////// 
-///////$j("<a class='ab-item' id='anchorUserProfile' href='http://52.87.218.201/user/default'>Edit Profile</a>").appendTo("#wp-admin-bar-edit-profile");
+///////$j("<a class='ab-item' id='anchorUserProfile' href='http://34.195.47.189/user/default'>Edit Profile</a>").appendTo("#wp-admin-bar-edit-profile");
 //////////////////////////////////////////////////////////////////////////////////////////////End////////////////////////////////////////    
 
     
@@ -209,7 +211,7 @@ if ($j(".display-name")[0]){
 } 
 else {
   var head = document.getElementsByClassName("center");
-   $j('#wpadm-login-form').attr('action', 'http://52.87.218.201/');  
+   $j('#wpadm-login-form').attr('action', 'http://34.195.47.189/');  
    $j('#anchorOrgList').detach();  
    $j('<h3 style="margin-bottom:0;margin-top:0;color:black" class="menu-item-34"><a style="margin-left:75%;font-weight:bold;font-size:small;color:black;margin-bottom:0" id="anchorRegister" href="#">Sign Up</a><em> | </em><a style="font-weight:bold;font-size:small;color:black;margin-bottom:0" id="anchorLogin" href="#">Login</a></h3>').appendTo(head[0]);//.appendTo('.page_head.hide_mob_headerimg');
   
@@ -239,6 +241,11 @@ localStorage.setItem("ColorPicker", "LC");
 
 if(localStorage.getItem("MenuLink") != null){
 var routeparams = localStorage.getItem("MenuLink");
+
+var res = routeparams.split("&");
+var res2 = res[0].split("=");
+$j("#labelOrgName").html(res2[1]);
+
 //console.log('Here in Nav Menu');
 $j("#menu-item-31").find("a").attr("href", "/map-value-chain/" + routeparams);
 $j("#menu-item-32").find("a").attr("href", "/capture-insights-establish-empathy/" + routeparams);

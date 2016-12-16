@@ -21,17 +21,17 @@ function CalculateSig(stringToSign, privateKey){
 function UpdateStep1withEmpathyID(){
 //////////////////////////////////////Update Step1 to include the empathy id////////////////
 var qs = getQueryString();
-var link = "http://52.87.218.201/create-form-step-2-view/entry/" + qs["step2_entry_id"];
+var link = "http://34.195.47.189/create-form-step-2-view/entry/" + qs["step2_entry_id"];
 
 //create signature and url for putting entries
 stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var put_url = 'http://52.87.218.201/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var put_url = 'http://34.195.47.189/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url4 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url4 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 var errorOccured = "proceed";
 $j.get(get_url4, function(data, textStatus)
 {
@@ -84,7 +84,7 @@ function getQueryString() {
 } 
 
 
-if(baseURLEntry.indexOf("http://52.87.218.201/organization-list/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/organization-list/") > -1){
 $j(document).ready(function() {
 localStorage.removeItem("OrgProfileForm");
 //var orgspan = document.getElementsByClassName("promptclose")[0];
@@ -93,7 +93,7 @@ var qs = getQueryString();
     
     stringToSign = publicKey + ":" + method + ":" + route + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var url = 'http://34.195.47.189/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     var companyname = qs["company_name"];//$j("#input_2_1").val();
 
     var WholeName = localStorage.getItem("WholeName");
@@ -336,7 +336,7 @@ window.location.href = '/finish-submit/?company_name=' + item + '&step1_entry_id
 }
 
 
-if(baseURLEntry.indexOf("http://52.87.218.201/finish-submit/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/finish-submit/") > -1){
 $j(document).ready(function() {
 
 

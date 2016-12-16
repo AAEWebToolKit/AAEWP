@@ -41,7 +41,7 @@ else{
      var r = $j(".um-form" ).find( "form" )
       $j(r).detach();
       $j(r).attr("id", "registration_form");
-      //$j(r).attr("action", "http://52.87.218.201/map-value-chain/");
+      //$j(r).attr("action", "http://34.195.47.189/map-value-chain/");
     if(r.length == 1){
       $j(".placebo").after($j(r));//inserts registraton form into modal popup container    
          

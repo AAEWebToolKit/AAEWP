@@ -23,6 +23,6 @@ if(qs["filter_9"] != null){
    if(WholeName != qs["filter_9"]){
 	$j(".gv-table-view").detach();
         $j(".restricted").css("visibility", "visible");
-    //window.location.href = "http://52.87.218.201/";
+    //window.location.href = "http://34.195.47.189/";
     }
 }

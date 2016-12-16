@@ -56,7 +56,7 @@ function NavigateStep1() {
 }
 
    //Populate Data from Org Profile Start Page (organizational-profile)
-    //if(url == "http://52.87.218.201/organizational-profile-step2/"){
+    //if(url == "http://34.195.47.189/organizational-profile-step2/"){
        var OrgProfileData = localStorage.getItem("OrgProfileForm");
       //alert(OrgProfileData);
        if(localStorage.getItem("OrgProfileForm") !== "Empty"){    

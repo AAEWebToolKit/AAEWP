@@ -47,7 +47,7 @@ $j("#btnEmpathyContainer").css("visibility", "visible");
 else{
 $j("#btnEmpathyContainer").detach();
 var empathy_entry_id = qs["empathy_entry_id"];
-$j('<form action="http://52.87.218.201/create-establish-empathy/" method="post"><button style="width:200px" class="sticky-list-edit submit">EDIT EMPATHY DATA</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+empathy_entry_id+'"></form>').insertBefore('#myLoginModal');
+$j('<form action="http://34.195.47.189/create-establish-empathy/" method="post"><button style="width:200px" class="sticky-list-edit submit">EDIT EMPATHY DATA</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+empathy_entry_id+'"></form>').insertBefore('#myLoginModal');
 /*$j("#btnEmpathy").click(function(e){
 $j("#btnEmpathy").html("EDIT EMPATHY DATA");
  window.location.href = "/create-establish-empathy-view/entry/" + qs["empathy_entry_id"] + "/"

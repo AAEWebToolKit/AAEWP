@@ -16,6 +16,7 @@ var baseURLEntry = location.protocol + '//' + location.host + location.pathname;
     var publicKey = "293dabb883";
     var privateKey = "d6c574f9f4f6a70";
     var method = "GET";
+    var deletemethod = "DELETE";
 
 var CanSubmit = true;
 
@@ -64,17 +65,17 @@ var navbar = $j("#FSNav").find("a");
 
 //$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
 
-$j("#anchorB").attr("href", "http://52.87.218.201/capture-insights-business-insights/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
+$j("#anchorB").attr("href", "http://34.195.47.189/capture-insights-business-insights/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
 
-$j("#anchorC").attr("href", "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
+$j("#anchorC").attr("href", "http://34.195.47.189/capture-insights-create-solutions/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
 
-$j("#anchorE").attr("href", "http://52.87.218.201/capture-insights-establish-empathy/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
+$j("#anchorE").attr("href", "http://34.195.47.189/capture-insights-establish-empathy/?company_name=" + company_name + '&step1_entry_id=' + step1_entry_id + '&isCompleted=' + complete + '&step3_entry_id=' + step3_entry_id + '&mvc_entry_id=' + mvc_entry_id + '&empathy_entry_id=' + empathy_entry_id + '&bi_entry_id='+ bi_entry_id + '&cs_entry_id='+ cs_entry_id);
 
-//$j("#anchorB").attr("href", "http://52.87.218.201/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+//$j("#anchorB").attr("href", "http://34.195.47.189/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
 
-//$j("#anchorC").attr("href", "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"]+ '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+//$j("#anchorC").attr("href", "http://34.195.47.189/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"]+ '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
 
-//$j("#anchorE").attr("href", "http://52.87.218.201/capture-insights-establish-empathy/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+//$j("#anchorE").attr("href", "http://34.195.47.189/capture-insights-establish-empathy/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&isCompleted=' + qs["isCompleted"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
 
         break;
 }
@@ -98,11 +99,11 @@ var navbar = $j("#FSNav").find("a");
 //$j((navbar)[3]).find("img").css("width", "250px");
 
 //$j(".single_post_content").prepend('<h3 id="FSNav" style="visibility:visible"><a id="anchorE" style="color:black;margin-left: 10%" href=""><strong style="color:#F1472C;margin-right:1%">1</strong>Establish Empathy</a><a id="anchorB"  href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">2</strong>Business Insights</a><a id="anchorC" href="" style="color:black;margin-left: 10%"><strong style="color:#F1472C;margin-right:1%">3</strong>Create Solutions</a><a  id="anchorFS" href="" style="color:#F1472C;text-decoration:underline"><strong style="color:#F1472C;margin-right:1%">4</strong>Finish & Submit</a></h3>');
-$j("#anchorB").attr("href","http://52.87.218.201/capture-insights-business-insights/" + routeparams);// "http://52.87.218.201/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+$j("#anchorB").attr("href","http://34.195.47.189/capture-insights-business-insights/" + routeparams);// "http://34.195.47.189/capture-insights-business-insights/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
 
-$j("#anchorC").attr("href","http://52.87.218.201/capture-insights-create-solutions/" + routeparams);// "http://52.87.218.201/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+$j("#anchorC").attr("href","http://34.195.47.189/capture-insights-create-solutions/" + routeparams);// "http://34.195.47.189/capture-insights-create-solutions/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
 
-$j("#anchorE").attr("href", "http://52.87.218.201/capture-insights-establish-empathy/" + routeparams);// "http://52.87.218.201/finish-submit/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
+$j("#anchorE").attr("href", "http://34.195.47.189/capture-insights-establish-empathy/" + routeparams);// "http://34.195.47.189/finish-submit/?company_name=" + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"]);
  
  break;
 }
@@ -123,7 +124,7 @@ sig = CalculateSig(stringToSign, privateKey);
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url6 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.get(get_url6, function(data, textStatus)
 {
@@ -152,7 +153,7 @@ sig = CalculateSig(stringToSign, privateKey);
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url6 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.get(get_url6, function(data, textStatus)
 {
@@ -180,7 +181,7 @@ sig = CalculateSig(stringToSign, privateKey);
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url6 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.get(get_url6, function(data, textStatus)
 {
@@ -208,7 +209,7 @@ sig = CalculateSig(stringToSign, privateKey);
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url6 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.get(get_url6, function(data, textStatus)
 {
@@ -235,7 +236,7 @@ sig = CalculateSig(stringToSign, privateKey);
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url6 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url6 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.get(get_url6, function(data, textStatus)
 {
@@ -267,7 +268,7 @@ sig = CalculateSig(stringToSign, privateKey);
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url5 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url5 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.get(get_url5, function(data, textStatus)
 {
@@ -320,12 +321,12 @@ var solutionsupdate = false;
 //create signature and url for putting entries
 stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var put_url = 'http://52.87.218.201/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var put_url = 'http://34.195.47.189/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url4 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url4 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 var errorOccured = "proceed";
 var newcreatesolutionsid = "";
 $j.get(get_url4, function(data, textStatus)
@@ -360,7 +361,7 @@ var route = newcreatesolutionsid
 
 stringToSign = publicKey + ":" + deletemethod + ":" + route + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var url = 'http://34.195.47.189/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 $j.ajax({
     url: url,
@@ -393,7 +394,7 @@ entry3['20'] = d.toDateString();
 }
 
 
-if(baseURLEntry.indexOf("http://52.87.218.201/finish-submit/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/finish-submit/") > -1){
 $j(document).ready(function() {
 
 var qs = getQueryString();
@@ -424,7 +425,7 @@ document.getElementById('myStatusPrompt').style.display = "block";
 
     stringToSign = publicKey + ":" + method + ":" + route + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var url = 'http://34.195.47.189/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     var companyname = $j("#input_2_1").val();
     
     var WholeName = localStorage.getItem("WholeName");
@@ -483,12 +484,12 @@ isSubmitted = obj["27"];
 if(isSubmitted == "Complete"){
 $j("#btnEmpathy").detach();
 //var empathy_entry_id = qs["empathy_entry_id"];
-$j('<form action="http://52.87.218.201/establish-empathy-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_empathy_id" value="'+obj.id+'"></form>').appendTo('.EmpathyButton');
+$j('<form action="http://34.195.47.189/establish-empathy-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_empathy_id" value="'+obj.id+'"></form>').appendTo('.EmpathyButton');
 $j("#lblCompleteEE").css("visibility", "visible");
 /////////////////////////////////////Replacing with sticky list form button//////////////////////////
 /*$j("#btnEmpathy").html('Edit');
 $j("#btnEmpathy").click(function() {
-    window.location.href = 'http://52.87.218.201/create-establish-empathy-view/entry/' + ee + '/';
+    window.location.href = 'http://34.195.47.189/create-establish-empathy-view/entry/' + ee + '/';
 });*/
 /////////////////////////////////////Replacing with sticky list form button//////////////////////////
 }
@@ -496,7 +497,7 @@ else{
 CanSubmit = false;
 $j("#btnEmpathy").html('Start');
 $j("#btnEmpathy").click(function() {
-    window.location.href = 'http://52.87.218.201/establish-empathy-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://34.195.47.189/establish-empathy-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }
     
@@ -506,7 +507,7 @@ else{
 if(qs["isCompleted"] == "Complete"){
 $j("#btnEmpathy").html('Start');
 $j("#btnEmpathy").click(function() {
-window.location.href = 'http://52.87.218.201/establish-empathy-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://34.195.47.189/establish-empathy-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -530,7 +531,7 @@ orgspan.onclick = function() {
     var MVCroute = "forms/11/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + MVCroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    url = 'http://52.87.218.201/gravityformsapi/' + MVCroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    url = 'http://34.195.47.189/gravityformsapi/' + MVCroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
        
     var MVCsearch = {
         field_filters : [
@@ -581,12 +582,12 @@ isSubmitted = obj["12"];
 if(isSubmitted == "Complete"){
 $j("#btnValueChain").detach();
 //var mvc_entry_id = qs["mvc_entry_id"];
-$j('<form action="http://52.87.218.201/create-map-value-chain/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_mvc_id" value="'+obj.id+'"></form>').appendTo('.ValueChainButton');
+$j('<form action="http://34.195.47.189/create-map-value-chain/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_mvc_id" value="'+obj.id+'"></form>').appendTo('.ValueChainButton');
 $j("#lblCompleteValueChain").css("visibility", "visible");
 /////////////////////////////////////Replacing with sticky list form button//////////////////////////
 /*$j("#btnValueChain").html('Edit');
 $j("#btnValueChain").click(function() {
-    window.location.href = 'http://52.87.218.201/create-map-value-chain-view/entry/' + ee + '/';
+    window.location.href = 'http://34.195.47.189/create-map-value-chain-view/entry/' + ee + '/';
 });*/
 /////////////////////////////Replacing with sticky list form button///////////////////////////////////
 }// Is the current map value chain complete
@@ -595,7 +596,7 @@ CanSubmit = false;
 $j("#btnValueChain").html('Start');
 
 $j("#btnValueChain").click(function() {
-    window.location.href = 'http://52.87.218.201/create-map-value-chain/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://34.195.47.189/create-map-value-chain/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }    
 
@@ -607,7 +608,7 @@ else{
 if(qs["isCompleted"] == "Complete"){
 $j("#btnValueChain").html('Start');
 $j("#btnValueChain").click(function() {
-window.location.href = 'http://52.87.218.201/create-map-value-chain/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://34.195.47.189/create-map-value-chain/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -631,7 +632,7 @@ orgspan.onclick = function() {
     var CSroute = "forms/14/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + CSroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    url = 'http://52.87.218.201/gravityformsapi/' + CSroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    url = 'http://34.195.47.189/gravityformsapi/' + CSroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
        
     var CSsearch = {
         field_filters : [
@@ -682,7 +683,7 @@ isSubmitted = obj["13"];
 if(isSubmitted == "Complete"){
 $j("#btnCreateSolutions").detach();
 //var cs_entry_id = qs["cs_entry_id"];
-$j('<form action="http://52.87.218.201/create-solutions-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_cs_id" value="'+obj.id+'"></form>').appendTo('.CreateSolutionsButton');
+$j('<form action="http://34.195.47.189/create-solutions-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_cs_id" value="'+obj.id+'"></form>').appendTo('.CreateSolutionsButton');
 $j("#lblCompleteCS").css("visibility", "visible");
 
 }// Is the current map value chain complete
@@ -691,7 +692,7 @@ CanSubmit = false;
 $j("#btnCreateSolutions").html('Start');
 
 $j("#btnCreateSolutions").click(function() {
-    window.location.href = 'http://52.87.218.201/create-solutions-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://34.195.47.189/create-solutions-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }    
 
@@ -703,7 +704,7 @@ else{
 if(qs["isCompleted"] == "Complete"){
 $j("#btnCreateSolutions").html('Start');
 $j("#btnCreateSolutions").click(function() {
-window.location.href = 'http://52.87.218.201/create-solutions-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://34.195.47.189/create-solutions-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]   + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -728,7 +729,7 @@ orgspan.onclick = function() {
     var BIroute = "forms/12/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + BIroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    url = 'http://52.87.218.201/gravityformsapi/' + BIroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    url = 'http://34.195.47.189/gravityformsapi/' + BIroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
        
     var BIsearch = {
         field_filters : [
@@ -779,7 +780,7 @@ isSubmitted = obj["34"];
 if(isSubmitted == "Complete"){
 $j("#btnBusinessInsights").detach();
 //var bi_entry_id = qs["bi_entry_id"];
-$j('<form action="http://52.87.218.201/business-insights-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_bi_id" value="'+obj.id+'"></form>').appendTo('.BusinessInsightsButton');
+$j('<form action="http://34.195.47.189/business-insights-form/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_bi_id" value="'+obj.id+'"></form>').appendTo('.BusinessInsightsButton');
 $j("#lblCompleteBI").css("visibility", "visible");
 
 }// Is the current map value chain complete
@@ -788,7 +789,7 @@ CanSubmit = false;
 $j("#btnBusinessInsights").html('Start');
 
 $j("#btnBusinessInsights").click(function() {
-    window.location.href = 'http://52.87.218.201/business-insights-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+    window.location.href = 'http://34.195.47.189/business-insights-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 });
 }    
 
@@ -801,7 +802,7 @@ document.getElementById('myStatusPrompt').style.display = "none";
 if(qs["isCompleted"] == "Complete"){
 $j("#btnBusinessInsights").html('Start');
 $j("#btnBusinessInsights").click(function() {
-window.location.href = 'http://52.87.218.201/business-insights-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
+window.location.href = 'http://34.195.47.189/business-insights-form/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];  
 });
     
 }
@@ -833,7 +834,7 @@ document.getElementById('mySubmitModal').style.display = "none";
 
 $j("#btnForwardInsights").click(function() {
 localStorage.setItem("Submit", "Yes");
-window.location.href = 'http://52.87.218.201/insights-successfully-submitted/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
+window.location.href = 'http://34.195.47.189/insights-successfully-submitted/' + routes;//?company_name=' + qs["company_name"] + '&step1_entry_id=' + qs["step1_entry_id"] + '&step2_entry_id=' + qs["step2_entry_id"] + '&step3_entry_id=' + qs["step3_entry_id"] + '&mvc_entry_id=' + qs["mvc_entry_id"] + '&empathy_entry_id=' + qs["empathy_entry_id"]  + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 
 });
 
@@ -871,7 +872,7 @@ if(qs["isCompleted"] == "Complete"){
 $j("#btnOrgProfile").detach();
 $j("#lblCompleteOrgProfile").css("visibility", "visible");
 //var step3_id = GetStep3EntryID('org');//qs["step3_entry_id"];
-$j('<form action="http://52.87.218.201/organization-profile_step3/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_id" value="'+GetAnyEntryID('org')+'"></form>').appendTo('.OrgProfileButton');
+$j('<form action="http://34.195.47.189/organization-profile_step3/" method="post"><button style="width:200px" class="sticky-list-edit submit finsub">Edit</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" id="edit_id" value="'+GetAnyEntryID('org')+'"></form>').appendTo('.OrgProfileButton');
 
 }
 else{
@@ -887,7 +888,7 @@ else{
 window.location.href = "/organizational-profile/" + routes;//?company_name=" + qs["company_name"]  + "&step1_entry_id=" + qs["step1_entry_id"]  + "&mvc_entry_id=" + qs["mvc_entry_id"] + '&empathy_entry_id='+ qs["empathy_entry_id"] + '&bi_entry_id='+ qs["bi_entry_id"] + '&cs_entry_id='+ qs["cs_entry_id"];
 }
 });
-//$j('<form action="http://52.87.218.201/organizational-profile/" method="post"><button style="width:200px" class="sticky-list-edit submit">Finish</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+ step1_entry_id +'"></form>').appendTo('.OrgProfileButton');
+//$j('<form action="http://34.195.47.189/organizational-profile/" method="post"><button style="width:200px" class="sticky-list-edit submit">Finish</button><input type="hidden" name="mode" value="edit"><input type="hidden" name="edit_id" value="'+ step1_entry_id +'"></form>').appendTo('.OrgProfileButton');
 
 }
 

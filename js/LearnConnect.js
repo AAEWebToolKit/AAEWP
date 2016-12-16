@@ -56,7 +56,7 @@ var clickedEntity = localStorage.getItem("clicked");
 //$j(reg).appendTo('#crumbslist');
 
 var baseURLEntry = location.protocol + '//' + location.host + location.pathname;
-if(baseURLEntry.indexOf("http://52.87.218.201/learn-connect/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/learn-connect/") > -1){
 var clickedEntity = localStorage.getItem("clicked");
                 if(clickedEntity != location.pathname.slice(1,location.pathname.length)){               
                
@@ -82,12 +82,12 @@ var qs = getQueryString();
 //create signature and url for putting entries
 stringToSign = publicKey + ":PUT:entries:" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var put_url = 'http://52.87.218.201/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var put_url = 'http://34.195.47.189/gravityformsapi/entries?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 //create signature and url for first entry
 stringToSign = publicKey + ":GET:entries/" + qs["step1_entry_id"] + ":" + future_unixtime;
 sig = CalculateSig(stringToSign, privateKey);
-var get_url4 = 'http://52.87.218.201/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+var get_url4 = 'http://34.195.47.189/gravityformsapi/entries/' + qs["step1_entry_id"] + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
 
 var errorOccured = "proceed";
 $j.get(get_url4, function(data, textStatus)
@@ -129,7 +129,7 @@ $j.get(get_url4, function(data, textStatus)
 }
 
 var baseURLEntry = location.protocol + '//' + location.host + location.pathname;
-if(baseURLEntry.indexOf("http://52.87.218.201/insights-successfully-submitted/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/insights-successfully-submitted/") > -1){
 var isSubmitted = localStorage.getItem("Submit");
 var qs = getQueryString();
 
@@ -144,7 +144,6 @@ if(isSubmitted == "Yes"){
 $j("#InsightsMessage").html('INSIGHTS SUCCESSFULLY SUBMITTED');
 $j("#OrgName").html('AAE Toolkit Data Download - ' + qs["company_name"] + '.xls');
 SetProfileSubmitted();
-localStorage.removeItem("Submit");
 }
 else{
 $j("#InsightsMessage").html('SUBMIT INSIGHTS TO DOWNLOAD YOUR TOOLKIT');
@@ -156,7 +155,7 @@ $j("#anchorFollowUp").detach();
 }
 
 
-if(baseURLEntry.indexOf("http://52.87.218.201/learn-connect/follow-up/") > -1){
+if(baseURLEntry.indexOf("http://34.195.47.189/learn-connect/follow-up/") > -1){
 function validateForm() {
 
     localStorage.setItem("EmailConfirmed", "Yes");

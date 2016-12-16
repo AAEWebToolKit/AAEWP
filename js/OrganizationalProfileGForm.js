@@ -42,7 +42,7 @@ function NavigateStep2() {
     window.location.href = "/organizational-profile-step2/";  
 }
 
-   if(url == "http://52.87.218.201/organizational-profile/"){ 
+   if(url == "http://34.195.47.189/organizational-profile/"){ 
 localStorage.removeItem("MenuLink");
  $j('#gform_2').submit(function() {
     // get all the inputs into an array.

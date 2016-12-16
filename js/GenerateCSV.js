@@ -8,10 +8,11 @@
     var publicKey = "293dabb883";
     var privateKey = "d6c574f9f4f6a70";
     var method = "GET";
+    var targetHits = 0;
 
     
 function CreateTableFromJSON(objArray, tableName) {
-
+          targetHits = targetHits + 1;
         // EXTRACT VALUE FOR HTML HEADER. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
         var col = [];
@@ -149,9 +150,10 @@ function CreateTableFromJSON(objArray, tableName) {
         //divContainer.innerHTML = "";
         divContainer.appendChild(table);
 
-	if(tableName == 'table5'){
+	if(targetHits == 5){
 
 	    document.getElementById('myStatusPrompt').style.display = "none";
+            localStorage.removeItem("Submit");
 	}
 }
 
@@ -276,13 +278,14 @@ console.log(workbookXML);
 /////////////////////////////////////////////////////////////////////////////////TABLE PROFILE///////////////////////////////////////////////////////////////////////////////////////
  $j(document).ready(function() { 
  var isSubmitted = localStorage.getItem("Submit");
+console.log('Submitted status is ' + isSubmitted);
 if(isSubmitted == "Yes"){
 document.getElementById('myStatusPrompt').style.display = "block";
 }
     var route = "forms/3/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + route + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var url = 'http://52.87.218.201/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var url = 'http://34.195.47.189/gravityformsapi/' + route + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     var companyname = qs["company_name"];//$j("#input_2_1").val();
 
     var WholeName = localStorage.getItem("WholeName");
@@ -348,7 +351,7 @@ tbody.appendTo("#table11"); // only DOM insertion
     var VCroute = "forms/11/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + VCroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var VCurl = 'http://52.87.218.201/gravityformsapi/' + VCroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var VCurl = 'http://34.195.47.189/gravityformsapi/' + VCroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     
     var VCsearch = {
         field_filters : [
@@ -412,7 +415,7 @@ VCtbody.appendTo("#table12"); // only DOM insertion
     var EEroute = "forms/13/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + EEroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var EEurl = 'http://52.87.218.201/gravityformsapi/' + EEroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var EEurl = 'http://34.195.47.189/gravityformsapi/' + EEroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     
     var EEsearch = {
         field_filters : [
@@ -475,7 +478,7 @@ EEtbody.appendTo("#table13"); // only DOM insertion
     var BIroute = "forms/12/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + BIroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var BIurl = 'http://52.87.218.201/gravityformsapi/' + BIroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var BIurl = 'http://34.195.47.189/gravityformsapi/' + BIroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     
     var BIsearch = {
         field_filters : [
@@ -539,7 +542,7 @@ BItbody.appendTo("#table14"); // only DOM insertion
     var CSroute = "forms/14/entries"; //The number is the id of the gravity form
     stringToSign = publicKey + ":" + method + ":" + CSroute + ":" + future_unixtime;
     sig = CalculateSig(stringToSign, privateKey);
-    var CSurl = 'http://52.87.218.201/gravityformsapi/' + CSroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
+    var CSurl = 'http://34.195.47.189/gravityformsapi/' + CSroute + '?api_key=' + publicKey + '&signature=' + sig + '&expires=' + future_unixtime;
     
     var CSsearch = {
         field_filters : [
